@@ -1,2 +1,29 @@
-#Logg_25/04/2020
+#Logg for 25/04/2020
+
+#Hva slags type maskin er utsatt: Microsoft blue
+#Utsatt maskin sin ip: 10.10.208.123
+
+#Beskriv hva du har gjort under hackingen + kommandoer
+Maskinen ble scannet av nmap + laget rapport:
+nmap -A -oX nmap-rapport --webxml 10.10.208.123
+
+Rapport viser at det er 9 porter aapne.
+
+Jeg lager og initierer metasploit database:
+msfdb init 	#Start and initialize the database
+
+Startet deretter Metasploit framework console:
+msfconsole
+
+Importerte nmap rapporten til Metasploit databasen:
+db_import nmap-rapport	#nmap-rapport er navnet paa rapporten
+
+Kjoorte en vulnerability scan gjennom Metasploit paa utsatt maskin, kanskje jeg kunne sjekket "show exploits" foor denne scannen:
+db_nmap --script=smb-vuln* 10.10.208.123
+
+Lagde log fil for all output fra Metasploit:
+spool /root/Desktop/TryHackMe/25-04-2020/MetasploitSpool
+
+Brukte Metasploit til vise mulige exploits:
+show exploits
 
