@@ -18,6 +18,7 @@ msfconsole
 Importerte nmap rapporten til Metasploit databasen:
 db_import nmap-rapport	#nmap-rapport er navnet paa rapporten
 
+#I retrospect tror jeg det hadde vaert lettere aa kjoere vulnerability scannen kun i nmap, den ser ut til gi spesifikk exploit output istedenfor 100.
 Kjoorte en vulnerability scan gjennom Metasploit paa utsatt maskin, kanskje jeg kunne sjekket "show exploits" foor denne scannen:
 db_nmap --script=smb-vuln* 10.10.208.123
 
@@ -25,5 +26,19 @@ Lagde log fil for all output fra Metasploit:
 spool /root/Desktop/TryHackMe/25-04-2020/MetasploitSpool
 
 Brukte Metasploit til vise mulige exploits:
-show exploits
+show exploits		#Ble veldig mye clutter fra denne rapporten, ekstremt mange vulnerabilities som blir funnet med scriptene
+
+Gikk til Metasploit spool-en og sokte etter vulnerabilities som var rangert "great":
+cat MetasploitSpool | grep great #Output fra spool har format: Name, Disclosure Date, Rank, Check, Description.
+	 #Jeg bruker alts grep til aa lete etter vulnerabilities som er rangert "great", kunne letet etter annet fra formatet som navn paa tjenesten
+	
+Var bottevis med vulnerabilities saa kjoerte scan i vanlig nmap istedenfor:
+nmap --script=smb-vuln* 10.10.208.123 
+#Nmap var mye klarere og ga tre forskjellige exploits, men kun ms17_010 hadde status "Vulnerable" og "Risk factor: High":
+ 
+Siden jeg fant en exploit maskinen var utsatt for sookte jeg paa den i Metasploit:
+search ms17_010
+#Tilbake fikk jeg en rekke forskjellige exploits opp og deres path. Path er viktig for aa kunne videre bruke exploiten mot utsatt maskin
+#Viktig aa legge merke til at resultatet fra sooket hadde exploits og auxilliary. Auxilliary er det scriptet eller whatever som sjekker om maskinen er utsatt
+#for exploiten eller ikke.
 
