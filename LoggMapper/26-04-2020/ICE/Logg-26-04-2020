@@ -5,5 +5,29 @@
 
 #Beskriv hva du har gjort under hackingen + kommandoer
 
+Startet nmap SYN scan mot utsatt maskin:
+nmap -sS -O -oX nmap-report --webxml 10.10.169.236	#SYN scan er veldig bra i aa finne ut hvilke porter som er aapne paa en utsatt maskin.
+#Med andre ord hvilke kommunikasjonsmuligheter som er mulige. I tillegg og kanskje det beste med SYN scan er at det ikke opprettes fullstendige koblinger
+#Saa denne typen scan blir sett paa som aa vaere "stealth scan" og vanskelig aa bli funnet om ikke det letes etter spesifikt
 
+#Scannen saa ut til aa gaa feilfri, dette kan kanskje tyde at firewall ikke beksytter/ikke er tilstede.
+#TryHackMe sier ivertfall at firewall er nede, og faktisk at vi skal kunne se at RDP tjenesten er oppe i output.
+
+Etter litt sooking paa hva de ulike tjenestene er fant jeg ut at tjenesten/service ms-wbt-server er protokollen som brukes i RDP.
+Dette kan vaere interessangt fordi vi kan proeve aa koble oss paa serveren med en exploit!
+
+Det er nevneverdig at SYN scannen fra nmap er bra i aa si hvilke porter som er aapne osv, men paa port 8000 staar det bare http og ikke hvilken tjeneste som faktisk kjores.
+Derfor kan det vaere smart aa gjoore en ny scan som spesifikt finner ut hvilken tjeneste som kjoeres paa porter, nemlig nmap -sV:
+nmap -sV 10.10.169.236 		#kan vaere smart aa begynne aa sette flagget -v for verbose, da faar vi tilbakemelding under scannen om hva som blir gjort 
+#Etter scan ser vi at tjenesten Icecast streaming media server er det som blir kjoert paa port 8000
+
+TryHackMe foreslo aa bruke https://www.cvedetails.com, der kan du sooke opp tjenester og faa dokumenterte vulnerabilities knyttet til dem. Ytterligere
+har exploitene CVE (Common Vulnerabilities and Exposures) nummer for aa gjenskjenne dem, i tillegg til rangering paa alorlighetsgrad. 
+
+TryHackMe sa denne tjenesten var en 2004 modell, men jeg fant ingen steder under nmap sookene hvor jeg fikk spesifikt service version dessverre. Det maa
+jeg finne ut hvordan jeg kan gjoore til fremtiden. Skal egentlig vaere nmap -sV som gir deg all info tjenestene som kjoeres paa porter og deres versjon. 
+Med andre ord var det kanskje bare ikke mulig aa finne ut noyaktig hvilken versjon Icecast var.
+
+Uansett jeg fant 2004 icecast vulnerabilitien paa nettsiden og den hadde hoy score. Denne vulnerabilitien var av typen "Execute CodeOverflow":
+Sitat fra www.cvedetails.com: "Buffer overflow in Icecast 2.0.1 and earlier allows remote attackers to execute arbitrary code via HTTP request with a large number of headers" 
 

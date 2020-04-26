@@ -1,2 +1,12 @@
 [1m[34m[*][0m Spooling to file /root/Desktop/TryHackMe/LoggMapper/26-04-2020/ICE/Metasploit-spool...
-[4mmsf5[0m [0m> 
+[4mmsf5[0m [0m>  [K [Ksearch Icecast
+[0m
+Matching Modules
+================
+
+   #  Name                                 Disclosure Date  Rank   Check  Description
+   -  ----                                 ---------------  ----   -----  -----------
+   0  exploit/windows/http/icecast_header  2004-09-28       great  No     Icecast Header Overwrite
+
+
+[4mmsf5[0m [0m>  [K [K [K [K2[K
