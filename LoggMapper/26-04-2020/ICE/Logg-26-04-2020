@@ -110,4 +110,46 @@ ps lsass
 		#(ett nytt i tillegg er kanskje mer riktig aa si). Dette library kalles (dll), saa vi laster et nytt dll i det kjorende programmet. Dette library har vaar
 		#malicious kode i seg. Fra dette kan vi "spawn a new thread that host our shell". 
 	
- 
+late file MACE attributeslate file mace attributeslate file mace attributeslate file mace attributesnaa som vi har fatt administrator rettigheter kan vi gaa over til "looting" stadiet. tryhackme ber oss om aa bruke "minikatz" som er
+en veldig kjent "password dumping tool". 
+da loader vi minikatz med kommandoen:
+load kiwi		#kiwi er den oppdaterte versjonen av minikatz
+
+late file MACE attributeskiwi er naa loaded og vi ser det i praksis ved aa aapne hjelp menyen og ser paa kiwi sine entries:
+help
+
+kiwi lar oss stjele passord ut av minne selv om brukeren "dark" ikke er logget inn siden det er en "scheduled task" som kjoorer icecast prosessen som brukeren "dark":
+creds_all		#litt usikker paa om den henter alle passord i praksis, eller om det maa vaere prosesser tilknyttet en bruker for aa kunne faa han sitt passord osv??
+#nb. denne maskinen har verken windows defender eller firewall paa og er ikke et realistisk scenario. 
+
+
+
+----------------------------------------post escalation----------------------------------------------
+
+naa har vi administrator rettigheter og kan gaa amok paa utsatt maskin, for eksempel see han sin desktop i real time:
+screenshare		#da faar du en path til en html fil. denne blaster du i nettleser saa har du getto stream :d
+
+andre ekle kommandoer:
+record_mic	#har ikke testet den, men tipper det er noenlunde det samme som screenshare med at du faar path til en fil som har audio-en
+timestomp	#endre paa timestamt til en fil. "Manipulate file MACE attributes" 
+"never do this command on a pentest unless told, not beneficial to defendant" 
+
+Minikatz (kiwi er den oppdaterte) lar oss lage en "golden ticket" som lar oss autentisere hvor som helst:
+golden_ticket_create 		#Er en boottevis med options som maa bli gitt for aa faa golden ticket, for eksempel FQDN (Fully qualified domain name), navn paa bruker osv..
+#Denne exploiten virker konge. Golden ticket attack er en funksjon i Minikatz som utnytter en komponent i Kerberos (The authentication system in Windows domains), nemlig den "ticket granting ticket". I korte trekk tillater golden ticket attack oss aa forbli vedvarende og autentisere oss som alle brukere i domenet. 
+
+En ting som er verdt aa notere seg er at vi har passordet til brukeren "Dark" og kunne derfor ha brukt RDP (Remote Desktop/MSRDP)
+#Likevel er det viktig aa huske at siden denne maskinen er en "workstation" ville vi mest sannsynlig ha sparket brukeren som var logget inn paa systemet. 
+Dersom RDP ikke er tillatt paa systemet kan vi tillate det gjennom:
+run post/windows/manage/enable_rdp
+
+Vi kan naa offisielt kalle oss for script kiddies! 
+#Neste steget blir aa sjekke ut hvordan du kan gjore slike manipulasjoner manuelt. TryHackMe har gitt denne linken for aa laere om manuel exploitation:
+"Explore manual exploitation via exploit code found on exploit-db. exploit link: https://www.exploit-db.com/exploits/568"
+#spesifikt denne linken henviser faktisk til hvordan du kan manuelt hijacke Icecast for remote code execution
+#Maa tross alt huske at vi vil ikke alltid ha muligheten til aa kunne bruke metasploit. 
+
+Neste modul etter denne, ICE, er BLASTER!
+
+
+
