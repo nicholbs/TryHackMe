@@ -46,5 +46,24 @@ Henter opp alle prosessene paa utsatt maskin:
 ps		#ps for prosess/prosesses/prosess list, output er en fin format table med ID navn osv. Her faar vi altsaa PID (process ID) PPID (Parent process ID) osv som vi kan bruke paa aa migrere til en stabil prosess senere. en ustabil prosess kan jo bli terminert av mange grunner og da mister vi vaar session... saa aa migrere til en prosess som er stabil er essensielt. 
 
 Jeg migrerer min meterpreter process "inn memory", usikker paa hva det akkurat innebaerer men kan vel vaere at meterpreter kjorer paa utsatt sin maskin sitt minne, det var sitat fra John Hammond sin TryHackMe EternalBlue video:
+migrate skrivProsessIdHer 	#Kan ogsaa migrere ved aa bruke navn paa prosessen ved "migrate -N navnPaaProsess" for eksemepl winlogon.exe ser ut til aa vaere en stabil prosess
 
+Med de eleverte rettighetene kan vi naa hente ut alle passordene paa maskinen gjennom vaar meterpreter ookt, saa lenge vi har de riktige rettighetene:
+hashdump		#Da fikk jeg ut brukernavn med semikolon etterfulgt med hashen for deres passord som output.
 
+#Det var vanskelig aa finne metode i meterpreter for aa gjoore output fra kommando til fil. Derfor fikk jeg ikke laget fil for aa saa bruke download kommando.
+#Istedenfor tok jeg aa bare fysisk kopierte og brukte Crackstation.net som har en online password cracker, boor nevnes at det var ment aa bruke JohnTheRipper, med andre ord John
+#Til aa brute force hashen.
+
+Letet rundt i systemet, kan vaere smartere aa sooke rundt med shell enn meterpreter:
+shell		#da faar du en shell ookt, ser ut til aa vaere raskere enn aa sooke rundt med meterpreter
+
+Fant diverse flagg ved aa sooke rundt, men fant ikke flagg2. Etter aa trykket paa hint stod det: "I whish I wrote down where i kept my password. Luckily it's still stored here on windows". Da kjoonte John Hammond at det kanskje er lagret i "Sam configuration" Der lagres nemlig alle hashene som er lagret for brukere:
+cd C:/Windows/System32/config	#Her fant jeg flagg2
+
+Prosessen med aa lete gjennom alle filer og directories tar lang tid. Istedenfor kan vi bruke search funksjonaliteten i meterpreter:
+search -f flag*.txt		#-f er for pattern, saa med -f flagget kan vi bruke wildcards osv.
+
+Etter soket fikk vi opp flag filene og deres path. Husk at vi har en session paa windows men er selv i linux, saa pathen vi faar i output kan ikke direkte brukes i meterpreter/shell tror jeg. Poenget er at du maa bare legge paa enda en "\" i path dersom du faar backslashes i output.
+
+Da ble hele Blue rommet ferdig. Det viktige aa hente herfra er at dette var ish samme metode som wannacry brukte, nemlig eternalblue. Kan vaere jeg tar litt feil paa detaljene saa les opp paa wannacry!
