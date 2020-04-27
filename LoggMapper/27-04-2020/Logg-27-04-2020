@@ -5,12 +5,26 @@
 
 #Beskriv hva du har gjort under hackingen + kommandoer
 
-------------Reckon-------------
+------------------------------------------Reckon--------------------------------------------
+
 nmap -sS -oX nmap-rapport --webxml 10.212.137.86
 #Fant en åpen port 3389/tcp som kjører RDP tjenesten for windows på
 
-nmap -sV 10.212.137.86	#Fikk vi vite ekstra om versjonen på rdp tjenesten
+nmap -sV 10.212.137.86	#port scan av cl1, fikk vite ekstra om versjonen på rdp tjenesten
+nmap -A -oX nmap-rapport-sr1 --webxml 10.212.141.188	#nmap scann av sr1
 
-nmap --script=rdp-vuln* 10.212.137.86	#
 
 
+
+---------------------------------------Get-Access-------------------------------------------
+
+
+
+----------------------------------------Escalate--------------------------------------------
+
+
+----------------------------------------Looting---------------------------------------------
+
+
+
+-----------------------------------Post-exploitation----------------------------------------
