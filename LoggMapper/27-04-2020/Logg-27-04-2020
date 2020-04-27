@@ -1,0 +1,16 @@
+#Logg for 27-04-2020
+
+#Hva slags type maskin er utsatt: CL1
+#Utsatt maskin sin ip: 10.212.137.86
+
+#Beskriv hva du har gjort under hackingen + kommandoer
+
+------------Reckon-------------
+nmap -sS -oX nmap-rapport --webxml 10.212.137.86
+#Fant en åpen port 3389/tcp som kjører RDP tjenesten for windows på
+
+nmap -sV 10.212.137.86	#Fikk vi vite ekstra om versjonen på rdp tjenesten
+
+nmap --script=rdp-vuln* 10.212.137.86	#
+
+
