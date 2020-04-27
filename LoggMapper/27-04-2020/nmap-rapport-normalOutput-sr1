@@ -1,0 +1,42 @@
+# Nmap 7.80 scan initiated Mon Apr 27 07:13:41 2020 as: nmap -Pn -A -oN nmap-rapport-sr1 10.212.141.188
+Nmap scan report for 10.212.141.188
+Host is up (0.060s latency).
+Not shown: 997 filtered ports
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Main Page for me :)
+443/tcp  open  ssl/http      Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Main Page for me :)
+| ssl-cert: Subject: commonName=SRV1.Reskit.Org
+| Subject Alternative Name: DNS:SRV1.Reskit.Org
+| Not valid before: 2020-03-21T16:49:49
+|_Not valid after:  2021-03-21T17:09:49
+|_ssl-date: 2020-04-27T09:14:04+00:00; -1h59m59s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: RESKIT
+|   NetBIOS_Domain_Name: RESKIT
+|   NetBIOS_Computer_Name: SRV1
+|   DNS_Domain_Name: reskit.org
+|   DNS_Computer_Name: srv1.reskit.org
+|   Product_Version: 10.0.17763
+|_  System_Time: 2020-04-27T09:14:01+00:00
+| ssl-cert: Subject: commonName=srv1.reskit.org
+| Not valid before: 2020-02-12T12:54:37
+|_Not valid after:  2020-08-13T12:54:37
+|_ssl-date: 2020-04-27T09:14:04+00:00; -1h59m59s from scanner time.
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: -1h59m59s, deviation: 0s, median: -1h59m59s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Apr 27 07:14:04 2020 -- 1 IP address (1 host up) scanned in 23.42 seconds
