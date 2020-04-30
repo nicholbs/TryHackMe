@@ -13,16 +13,16 @@ I would have gotten away with it if it wasn't for active directory!
 -------------------------------------------------------------------
 **Abstract**  
 
-This report outline the weaknesses exposed on Radiobroadcast's network with windows XP computers.  
+This report outline the weaknesses exposed on Radiobroadcast's network with Microsoft windows 2000 and XP computers.  
 Remote attacker was enabled access through ethernalBlue, buffer overflow attack and lack of security configurations.  
 Means and meassures of attacks and procedures for recovery are described in details.  
 
+
 **Table of Contents**  
 * 1.Purpose of report  
-* 2.Radiobroadcast network  
-  * 2.1 Current infrastructure
-  * 2.2 Services provided
-  * 2.3 future 
+* 2.Exploited application  
+  * 2.1 Vulnerable systems
+  * 2.1 Current infrastructure and services
 * 3.Attack  
   * 3.1 Recon/Auxilliary  
     * 3.1.1 Nmap
@@ -47,3 +47,6 @@ Means and meassures of attacks and procedures for recovery are described in deta
   * 4.1 What we learned
   * 4.2 Prospects of active directory
   
+  
+1. Purpose of report
+This report has the purpose of 
