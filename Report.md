@@ -51,9 +51,26 @@ Means and meassures of attacks and procedures for recovery are described in deta
   
   
 1. Purpose of report
-This report has the purpose of outlining how excessive user rights constitute foothold    
+The report outlines how excessive user rights constitute foothold    
 for attackers to exploit a windows infrastructure.  
-Altogether the reader will learn the importance of exercising appropriate group policies for users
+Readers will alltogether learn the importance of exercising appropriate group policies for users.  
+Furthermore the attackers methodology is bestoved focus on to demonstrate the mentality needed  
+from administrator when implementing active directory domain services.
+
+
+mentality
+the mindset which future implementations of active directory  
+domain services should be created form. 
+demonstrated through  
+a user which 
+
+bestoved focus on recovery and 
+
+
+Attacker is enabled access 
+Attack methododology is detailed 
+
+To conclude, 
 
 excersice appropriate policies 
 
