@@ -50,39 +50,28 @@ Means and meassures of attacks and procedures for recovery are described in deta
   * 4.2 Prospects of active directory
   
   
-1. Purpose of report  
+ 1.Purpose of report  
 --------------------
 The report outlines how excessive user rights constitute foothold    
 for attackers to exploit a windows infrastructure.  
 Readers will alltogether learn the importance of exercising appropriate group policies for users.  
 Furthermore the attackers methodology is bestoved focus on to demonstrate the mentality needed  
-from administrator when implementing active directory domain services.
+from administrator when implementing active directory domain services.  
+
+Vulnerabilities explored in this report are all available in the metasploit framework.  
+Moreover, Metasploit consists of scripts assembled together into a single framework.  
+The framework serves as an ease of access tool to penetration test networks and proficiency in computer systems is not required.  
+This report will only use tools obtainable through metasploit.  
+With this in mind, one could argue that any user pose a security threat and should be given rights accordingly.  
 
 
-mentality
-the mindset which future implementations of active directory  
-domain services should be created form. 
-demonstrated through  
-a user which 
-
-bestoved focus on recovery and 
+Reconnaissance 
+Gaining access and escalating rights is done through buffer overflow and memory injection.  
+Post modules leads to exposure of files and users.  
+Access to password prohibited files is done with hash cracking tools.  
+All exploits are available in the open source metasploit framework.  
 
 
-Attacker is enabled access 
-Attack methododology is detailed 
-
-To conclude, 
-
-excersice appropriate policies 
-
-right 
-
-enabled to 
-
-through learning the
 
 
-footing  
-Footing for 
 
-an attacker gains ground on 
