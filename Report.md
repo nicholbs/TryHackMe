@@ -1,5 +1,5 @@
-Bolster defence through offence
-===============================
+Pentesting microsoft domain with excessive user rights
+======================================================
 
 **Author**: Nicholas Bodvin Sellevåg  
 **Date**: submitted 01/05/2020  
@@ -9,13 +9,15 @@ Bolster defence through offence
 
 
 
-I would have gotten away with it if it wasn't for active directory!
+
+Misimplementation of active directory domain services
 -------------------------------------------------------------------
 **Abstract**  
 
-This report outline the weaknesses exposed on Radiobroadcast's network with Microsoft windows 2000 and XP computers.  
+This report outlines weaknesses exposed in excessive user rights on a windows 2000 computer, and subsequently the lack of active directory domain services configuration.  
 Remote attacker was enabled access through ethernalBlue, buffer overflow attack and lack of security configurations.  
-Means and meassures of attacks and procedures for recovery are described in details.  
+Means and meassures of attacks and procedures for recovery are described in details.   
+
 
 
 **Table of Contents**  
@@ -49,4 +51,20 @@ Means and meassures of attacks and procedures for recovery are described in deta
   
   
 1. Purpose of report
-This report has the purpose of 
+This report has the purpose of outlining how excessive user rights constitute foothold    
+for attackers to exploit a windows infrastructure.  
+Altogether the reader will learn the importance of exercising appropriate group policies for users
+
+excersice appropriate policies 
+
+right 
+
+enabled to 
+
+through learning the
+
+
+footing  
+Footing for 
+
+an attacker gains ground on 
