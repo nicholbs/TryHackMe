@@ -20,14 +20,19 @@ Means and meassures of attacks and procedures for incident handling are describe
 **Table of Contents**  
 * 1.Purpose of report  
 * 2.Radiobroadcast network  
- * 2.1 Current infrastructure
- * 2.2 Services provided
- * 2.3 future 
-* 3.Attack
-  * 3.1 Recon/Auxilliary
-  * 3.2 Gain Access
-  * 3.3 Escalate
-  * 3.4 Cracking
-  * 3.5 Looting
-  * 3.6 Post-Exploitation
-* 4.Next
+  * 2.1 Current infrastructure
+  * 2.2 Services provided
+  * 2.3 future 
+* 3.Attack  
+  * 3.1 Recon/Auxilliary  
+    * 3.1.1 Nmap
+  * 3.2 Gain Access  
+    * 3.2.1 Buffer overflow
+    * 3.2.2 Reverse TCP
+  * 3.3 Escalate  
+    * 3.3.1 meterpreter
+  * 3.4 Cracking the hash  
+    * 3.4.1 Brute force
+  * 3.5 Looting  
+  * 3.6 Post-Exploitation  
+* 4.Next  
