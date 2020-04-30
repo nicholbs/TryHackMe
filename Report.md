@@ -24,7 +24,7 @@ Means and meassures of attacks and procedures for recovery are described in deta
 * 1.Purpose of report  
 * 2.Exploited application  
   * 2.1 Current infrastructure and services
-  * 2.1 Vulnerable systems
+  * 2.1 Buffer overflow and in-memory attack
 * 3.Attack  
   * 3.1 Recon/Auxilliary  
     * 3.1.1 Nmap
@@ -79,17 +79,15 @@ While the infrastructure reflects a medium sized business with active directory 
 Size is not a determining factor for the radio business scenario.  
 Future examples will represent the whole domain with only a client and domain controller.  
 
+ 2.1 Buffer overflow and in-memory attack
+ ----------------------------------------
+Icecast version 2.0.1 and earlier installements are vulnerable to buffer overflow.  
+Explaining buffer overflow is vital for the report because it is a generall concept and affects all coded programs.  
+
+In addition, understanding the problem is essential.  
+
+>No problem can be solved from the same level of consciousness that created it. -Albert Einstein
 
 
-
-Reconnaissance 
-Gaining access and escalating rights is done through buffer overflow and memory injection.  
-Post modules leads to exposure of files and users.  
-Access to password prohibited files is done with hash cracking tools.  
-All exploits are available in the open source metasploit framework.  
-
-
- 
-  * 2.1 Vulnerable systems
 
 
