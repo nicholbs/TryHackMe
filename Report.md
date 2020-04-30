@@ -50,7 +50,8 @@ Means and meassures of attacks and procedures for recovery are described in deta
   * 4.2 Prospects of active directory
   
   
-1. Purpose of report
+1. Purpose of report  
+--------------------
 The report outlines how excessive user rights constitute foothold    
 for attackers to exploit a windows infrastructure.  
 Readers will alltogether learn the importance of exercising appropriate group policies for users.  
