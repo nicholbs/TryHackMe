@@ -15,7 +15,7 @@ I would have gotten away with it if it wasn't for active directory!
 
 This report outline the weaknesses exposed on Radiobroadcast's network with windows XP computers.  
 Remote attacker was enabled access through ethernalBlue, buffer overflow attack and lack of security configurations.  
-Means and meassures of attacks and procedures for incident handling are described in details.  
+Means and meassures of attacks and procedures for recovery are described in details.  
 
 **Table of Contents**  
 * 1.Purpose of report  
@@ -38,4 +38,12 @@ Means and meassures of attacks and procedures for incident handling are describe
     * 3.5.2 Exposing users / Minikatz (Kiwi) creds all
   * 3.6 Post-Exploitation  
     * 3.6.1 hashdump, screenshare, record mic, golden ticket
-* 4.Next  
+* 4.Recovery procedures
+  * 4.1 Being rooted
+  * 4.2 Policy
+  * 4.3 Identify the problem
+  * 4.4 Recover control
+* 4.Defending 
+  * 4.1 What we learned
+  * 4.2 Prospects of active directory
+  
