@@ -98,7 +98,7 @@ To fully understand the concept of buffer overflow, three aspects are necessary:
 2. Memory addresses spaces.
 3. Leak in memory
 
-*Usage of buffers in coding*
+*Usage of buffers in coding*  
 The regularity of buffer overflow differ from programming languages.  
 Programs written in C is often associated with buffer overflow.  
 For example, games are often developed with C as it can offers faster compiling time and execution.  
@@ -111,10 +111,13 @@ Behind the scenes a user can be expected to input their name with 20 characters.
 Write "John Smith" and the boundaries are met.  
 Write "John Smithhhhhhhhhhhhhhhhh" and suddenly the buffer has overflown and all extra "h" will affect the next memory address.
 
-*Memory address spaces*
+*Memory address spaces*  
 Programs are given access to memory during runtime and becomes a process.  
 The memory can be viewed as blocks, within are address spaces stacked together to form the block.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Allocated%20memory.PNG" width="400" height="230">  
+
 Essentially, code is compiled from human programming language into machine code and mapped into each address space.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Address%20space.PNG" width="400" height="230">  
 
 Processes load addresses to serve a function inside the program.  
 
@@ -122,9 +125,8 @@ Concepts of shared library is out of scope for this report.
 Some memory is only accessible for a designated part of a program, others can be dynamically linked.  
 Dynamic link libraries and Executables are out of scope for this report.
 
-Leak in memory
-
-While Dynamica Link Libraries and Executables are out of scope for this report.  
+*Leak in memory*  
+While Dynamic Link Libraries and Executables are out of scope for this report.  
 The concept of using buffer overflow as a means of attack stems from memory used in different processes.  
 For example the program Icecast can share a part of memory which another program uses.  
 Overwriting the code inside that address space results in new code being loaded in other processes.  
