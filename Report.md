@@ -36,13 +36,10 @@ Means and meassures of attacks and procedures for recovery are described in deta
   3.6 Post-Exploitation  
     3.6 hashdump, screenshare, record mic, golden ticket  
 4.Recovery procedures  
-  4.1 Being rooted  
-  4.2 Policy  
-  4.3 Identify the problem  
-  4.4 Recover control  
-5.Defending  
-  5.1 What we learned  
-  5.2 Prospects of active directory  
+  4.1 Identify the problem 
+  4.2 Being rooted  
+  4.3 Recover control  
+  4.4 Prospects of active directory  
   
   
 1.Purpose of report  
@@ -167,7 +164,7 @@ Link to Luigi Auriemma description, who was the first to report the vulnerabilit
 Clients that host software services to the internet should be monitored carefully.
 This topic covers procedures for recovering a system breached with the Icecast vulnerability.  
 
-4.3 Identify the problem  
+4.1 Identify the problem  
 ------------------------
 Symptoms of a system breached through Icecast vulnerabilities can be found in:
 1. Microsoft error message (pop up windows)
@@ -189,7 +186,7 @@ Signes of an attacker using this software is a capturing packets with the addres
 Another sign is physical instances of netcat listeners on host.  
 For instance the process can be viewed through task manager and Eventviewer.  
 
-4.1 Being rooted  
+4.2 Being rooted  
 ----------------
 Contain the host and prefferably the whole network unavailable from internet. Involve law enforcement and document the actions that led to the compromised system being discovered.
 Duplicate hard drives on exposed systems and assemble them together as evidence.  
@@ -200,7 +197,7 @@ Being rooted means the attacker is capable of planting backdoors to regain contr
 In other words, achieving full certainy that a system is not under influence of others call for rebuilding at the operating system level.  
 
 
-4.4 Recover control  
+4.3 Recover control  
 -------------------
 The vulnerabilities explored in this report all stem from users having excessive rights and privileges.  
 Restricting users and computers through group policies or other rule enforcing systems is advised.  
@@ -210,9 +207,8 @@ Secondly, users should be prohibited from downloading software or limited to a s
 Internet access moderated through internal and external gateway's firewall.  
 Antivirues software, keep in mind that not every virus is detectable or handable even by antivirus software. For example viruses have adapted to attack through staying in volatile memory which does not produce writing to files and is less detectable.  
 
-5.Defending  
-  5.1 What we learned  
-  5.2 Prospects of active directory  
+4.4 Prospects of active directory
+---------------------------------
 
     
 
