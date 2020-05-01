@@ -129,9 +129,12 @@ There are different types of storage for instruction in the CPU called registers
 To remain on topic, only the vulnerability concept will be explained and not registers structure.
 
 The CPU handles an instruction at a time, in which it uses pointers to deliminate which instruction to be handled.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Instructions.PNG" width="400" height="230">  
+Extended Stack pointer (ESP) keeps track of what memory address is the current instruction.  
+Extended Instruction Pointer (EIP) keeps track of what memory address is the succedding instruction.  
 
-<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Instructions.PNG" width="400" height="230"> 
-
+Finally we can address the vulnerability being exploited, namely overwriting the pointed address.
+For example 
 <img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/CPU%20register.PNG" width="400" height="230"> 
 
 This report will not go into detail about the CPU
