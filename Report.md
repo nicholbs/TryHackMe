@@ -3,7 +3,7 @@ Pentesting microsoft domain with excessive user rights
 
 **Author**: Nicholas Bodvin Sellevåg  
 **Date**: submitted 01/05/2020  
-**Version**: 1.0  
+**Version**: 2.0  
 
 
 Misimplementation of active directory domain services
@@ -133,37 +133,13 @@ The CPU handles an instruction at a time, in which it uses pointers to deliminat
 Extended Stack pointer (ESP) keeps track of what memory address is the current instruction.  
 Extended Instruction Pointer (EIP) keeps track of what memory address is the succedding instruction.  
 
-Finally we can address the vulnerability being exploited, namely overwriting the pointed address.
-For example 
+Finally we are able to address the vulnerability being exploited, namely overwriting the pointed address.  
+For example, in the priveous picture there is a buffer.  
+The buffer was an allocated space for input from user to be contained.  
+User exceeds the boundaries with its input and overflows into next address space, which overwrites the address.  
+In extent, we have created a new pointed address which leads to seperate code being run and executed.  
 <img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/CPU%20register.PNG" width="400" height="230"> 
-
-This report will not go into detail about the CPU
-One could go into detail about the CPU's own register, 
-Stacks 
-These are sent as instructions and stored in registe
-
-
-and the code's address space is stored in registers. 
-
-in a similar stack structruce as mentioned previously.  
-Each 
-
-, instructions are sent to the CPU 
-
-from programs 
-The CPU uses pointer that holds the addresses for code to 
-program tell the different instructions 
-
-While Dynamic Link Libraries and Executables are out of scope for this report.  
-The concept of using buffer overflow as a means of attack stems from memory used in different processes.  
-For example the program Icecast can share a part of memory which another program uses.  
-Overwriting the code inside that address space results in new code being loaded in other processes.  
 Ultimately, overwriting could lead to processes loading code which opens powershell and execute cmdlets.  
-
-
-Concepts of shared library is out of scope for this report.  
-Some memory is only accessible for a designated part of a program, others can be dynamically linked.  
-Dynamic link libraries and Executables are out of scope for this report.
 
 
 
