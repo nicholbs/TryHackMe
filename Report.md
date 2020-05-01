@@ -15,7 +15,7 @@ Misimplementation of active directory domain services
 **Abstract**  
 
 This report outlines weaknesses exposed in excessive user rights on a windows 2000 computer, and subsequently the lack of active directory domain services configuration.  
-Remote attacker was enabled access through ethernalBlue, buffer overflow attack and lack of security configurations.  
+Remote attacker was enabled access through buffer overflow and lack of security configurations.  
 Means and meassures of attacks and procedures for recovery are described in details.   
 
 
@@ -55,12 +55,12 @@ Means and meassures of attacks and procedures for recovery are described in deta
 The report outlines how excessive user rights constitute foothold    
 for attackers to exploit a windows infrastructure.  
 Readers will alltogether learn the importance of exercising appropriate group policies for users.  
-Furthermore the attackers methodology is bestoved focus on to demonstrate the mentality needed  
-from administrator when implementing active directory domain services.  
+Furthermore the attackers methodology is bestoved focus to demonstrate the mentality needed  
+from administrator when implementing security systems in their network.  
 
-Vulnerabilities explored in this report are all available in the metasploit framework.  
+Exploits explored in this report are all available in the metasploit framework.  
 Moreover, Metasploit consists of scripts assembled together into a single framework.  
-The framework serves as an ease of access tool to penetration test networks and proficiency in computer systems is not required.  
+The framework serves as an ease of access tool for penetration testing networks, proficiency in computer systems is not required.  
 This report will only use tools obtainable through metasploit.  
 With this in mind, one could argue that any user pose a security threat and should be given rights accordingly.  
 
@@ -70,24 +70,48 @@ With this in mind, one could argue that any user pose a security threat and shou
 2.1 Current infrastructure and services  
 ---------------------------------------  
 The scenario consists of a radio streaming business.  
-Remote listeners connects to a locally hosted web address, typically on a web browser.  
-Local clients use the application Icecast for publishing their audio.  
-It is notewhorty that Icecast does not produce audio, third party software is necessary.  
-The third party software can be found on any operating system.  
-Consequently exploiting Icecast affects all broadcasting users inside the domain.  
-While the infrastructure reflects a medium sized business with active directory implemented.  
-Size is not a determining factor for the radio business scenario.  
-Future examples will represent the whole domain with only a client and domain controller.  
+Local clients use the application Icecast for publishing their audio online.
+Remote listeners connects to locally hosted web addresses, typically on a web browser.
+Icecast can be applied to most unix and windows opperating systems, and it is notewhorty that the application does not produce audio.  
+
+  
+Third party software is necessary to feed sound into Icecast.  
+Supplementary audio software is accessible on any operating system.  
+Consequently exploiting Icecast affects all broadcasters in our scenario, there are no limitations based on operating systems.  
+
+
+The infrastructure itself reflects a medium sized business in size, and has implemented their domain with active directory domain services.  
+It is notewhorty that neither size or type of computer is a determining factor for this scenario seing as any client or server running Icecast is affected.  
+For ease of concept, future examples will represent the whole domain with only a single client and domain controller.  
 
  2.1 Buffer overflow and in-memory attack
  ----------------------------------------
-Icecast version 2.0.1 and earlier installements are vulnerable to buffer overflow.  
-Explaining buffer overflow is vital for the report because it is a generall concept and affects all coded programs.  
+Specifically, Icecast version 2.0.1 and earlier installements are vulnerable to buffer overflow.  
+Buffer overflow is a central concept to avoid when creating sturdy and reliable code.
+Programs that run without proper measurements to overflowing buffers can lead to the exploits this report entails.
+In other words, explaining buffer overflow is vital for the report and leading pharagraps will make an attempt at it. 
+After all, understanding the problem is essential before applying solutions.  
 
-In addition, understanding the problem is essential.  
+>"No problem can be solved from the same level of consciousness that created it." -Albert Einstein  
 
->No problem can be solved from the same level of consciousness that created it. -Albert Einstein
+Imagine pouring yourself a glass of water, naturally there is a limit without leaking.  
+Then pour some additional water and the glass overflows.  
+In the same manor some programs without proper boundaries can overflow buffers.  
+Buffers are an allocated memory block of specified lenght.  
+Superceeding the manageable amount of data results in the extra data overwriting critical values.
 
+one could feed data to an allocated memory block of specified lenght. and  
+
+without leaking.  
+Then 
+
+
+it has a set amount of water maintanable without leaking. Filling water to the brim, and then 
+
+usually one would confine themself to the containable amount. 
+To illustrate buffer overflow can be viewed in
+
+with boundaries not being 
 
 
 
