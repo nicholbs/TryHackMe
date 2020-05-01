@@ -114,11 +114,10 @@ Write "John Smithhhhhhhhhhhhhhhhh" and suddenly the buffer has overflown and all
 *Memory address spaces*  
 Programs are given access to memory during runtime and becomes a process.  
 The memory can be viewed as blocks, within are address spaces stacked together to form the block.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Allocated%20memory.PNG" width="400" height="230">  
+
 Essentially, code is compiled from human programming language into machine code and mapped into each address space.  
 <img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Address%20space.PNG" width="400" height="230">  
-
-
-
 
 Processes load addresses to serve a function inside the program.  
 
