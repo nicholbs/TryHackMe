@@ -148,12 +148,28 @@ Link to Luigi Auriemma description, who was the first to report the vulnerabilit
 3.1 Recon/Auxilliary  
 --------------------
    
+Screenshot
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/pnPSBbRO.jpeg" width="400" height="230">  
+  
+SYN scan
+[nmap SYN scan](https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/nmap-SynScan)  
+
+Agressiv scan
+[nmap Agressive scan](https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/nmap-AggressiveScan)  
    
-   
-   
-   
-   
-   
+SendeGitLabScript
+[Sende GitLab Script](https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/SendeGitLabScript.ps1)
+
+[Script for rapport]([nmap Agressive scan](https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/ScriptForRapport.ps1))
+
+
+MetaSploit Spool
+[Metasploit spool](https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/Metasploit-Spool)  
+
+
+
+     
+     
    3.1 Nmap
 
 
@@ -209,6 +225,11 @@ Antivirues software, keep in mind that not every virus is detectable or handable
 
 4.4 Prospects of active directory
 ---------------------------------
+
+
+Appendixes
+==========
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/LoggMapper/Prosjekt-01-05-2020/pnPSBbRO.jpeg" width="400" height="230"> 
 
     
 
