@@ -95,7 +95,7 @@ Superceeding the manageable amount of data results in the extra data overwriting
 
 To fully understand the concept of buffer overflow, three aspects are necessary:
 1. Usage of buffers in coding
-2. Memory stack and addresses.
+2. Memory addresses spaces.
 3. Leak in memory
 
 *Usage of buffers in coding*
@@ -111,9 +111,25 @@ Behind the scenes a user can be expected to input their name with 20 characters.
 Write "John Smith" and the boundaries are met.  
 Write "John Smithhhhhhhhhhhhhhhhh" and suddenly the buffer has overflown and all extra "h" will affect the next memory address.
 
-*Memory stack and addresses*
-Programs are given access to blocks of memory during runtime.  
-The actual code gets 
+*Memory address spaces*
+Programs are given access to memory during runtime and becomes a process.  
+The memory can be viewed as blocks, within are address spaces stacked together to form the block.  
+Essentially, code is compiled from human programming language into machine code and mapped into each address space.  
+
+Processes load addresses to serve a function inside the program.  
+
+Concepts of shared library is out of scope for this report.  
+Some memory is only accessible for a designated part of a program, others can be dynamically linked.  
+Dynamic link libraries and Executables are out of scope for this report.
+
+Leak in memory
+
+While Dynamica Link Libraries and Executables are out of scope for this report.  
+The concept of using buffer overflow as a means of attack stems from memory used in different processes.  
+For example the program Icecast can share a part of memory which another program uses.  
+Overwriting the code inside that address space results in new code being loaded in other processes.  
+Ultimately, overwriting could lead to processes loading code which opens powershell and execute cmdlets.  
+To conclude, memory adresses spaces are assigned to a process and contains code to be loaded and run by programs.
 
 
 
