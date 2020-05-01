@@ -108,17 +108,13 @@ Input from users is gathered with functions such as scanf, gets and strcpy.
 Absence of appropriate boundary checking when receiving input can result in buffer overflow.  
 
 In fact every program that asks for credentials have a similar input function.  
-For example, 
-Overflowing the input buffer when expected to write username "John Smith"
-Programs that ask for credentials, for example username and password for Facebook.  
-The user is expected to write their name accordingly
+Behind the scenes a user can be expected to input their name with 20 characters.  
+Write "John Smith" and the boundaries are met.  
+Write "John Smithhhhhhhhhhhhhhhhh" and suddenly the buffer has overflown and all extra "h" will affect the next memory address.
 
-of programs with input
+*Memory stack and addresses*
 
-Programs makes use of functions and
 
-are usually in C and C++ ob. 
-The programs consists mainly of 
 
 
 
