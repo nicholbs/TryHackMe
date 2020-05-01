@@ -19,7 +19,7 @@ Means and meassures of attacks and procedures for recovery are described in deta
 1. Purpose of report  
 2. Exploited application  
   2.1 Current infrastructure and services
-  2.1 Buffer overflow and in-memory attack  
+  2.1 Buffer overflow 
 3.  Attack  
     3.1 Recon/Auxilliary  
     3.1 Nmap
@@ -77,8 +77,8 @@ The infrastructure itself reflects a medium sized business in size, and has impl
 It is notewhorty that neither size or type of computer is a determining factor for this scenario seing as any client or server running Icecast is affected.  
 For ease of concept, future examples will represent the whole domain with only a single client and domain controller.  
 
- 2.1 Buffer overflow and in-memory attack
- ----------------------------------------
+ 2.1 Buffer overflow
+ -------------------
 Specifically, Icecast version 2.0.1 and earlier installements are vulnerable to buffer overflow.  
 Buffer overflow is a central concept to avoid when creating sturdy and reliable code.
 Programs that run without proper measurements to overflowing buffers can lead to the exploits this report entails.
@@ -143,7 +143,7 @@ Ultimately, overwriting could lead to processes loading code which opens powersh
 
 The general explanation of buffer overflow applies to both exploits used to gain access in this report.  
 Link to Luigi Auriemma description, who was the first to report the vulnerability in Icecast.  
-[Luigi Auriemma's report!](goohttps://www.exploit-db.com/exploits/568gle.com)  
+[Luigi Auriemma's report!](https://www.exploit-db.com/exploits/568)  
 
 
 
@@ -152,7 +152,23 @@ Link to Luigi Auriemma description, who was the first to report the vulnerabilit
 
 
 
+  4.3 Identify the problem  
+Symptoms of a system breached through Icecast vulnerabilities can be found in:
+1. Microsoft error message (pop up windows)
+2. Microsoft Eventviewer
 
+Icecast will forcefully close on the client which is streaming.  
+The generated pop upp error message describes Icecast encountering a problem.  
+Client would need to be physically present to view such an error.  
+Furthermore, there are small margins for the breach being reported before attacker has hidden his presence.  
+
+Microsoft Eventviewer is far more likely to be noticed by defenders.  
+
+
+that is running the application will close due to error 
+
+
+are a couple of  
 
 
 
