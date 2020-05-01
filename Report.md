@@ -138,8 +138,21 @@ For example, in the priveous picture there is a buffer.
 The buffer was an allocated space for input from user to be contained.  
 User exceeds the boundaries with its input and overflows into next address space, which overwrites the address.  
 In extent, we have created a new pointed address which leads to seperate code being run and executed.  
-<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/CPU%20register.PNG" width="400" height="230"> 
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/CPU%20register.PNG" width="400" height="230">  
 Ultimately, overwriting could lead to processes loading code which opens powershell and execute cmdlets.  
+
+The general explanation of buffer overflow applies to both exploits used to gain access in this report.  
+Link to Luigi Auriemma description, who was the first to report the vulnerability in Icecast.  
+[link to Luigi Auriemma's explanation!](http://goohttps://www.exploit-db.com/exploits/568gle.com)  
+
+
+
+
+
+
+
+
+
 
 
 
