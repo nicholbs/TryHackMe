@@ -145,14 +145,30 @@ The general explanation of buffer overflow applies to both exploits used to gain
 Link to Luigi Auriemma description, who was the first to report the vulnerability in Icecast.  
 [Luigi Auriemma's report!](https://www.exploit-db.com/exploits/568)  
 
+3.Attack  
+========
+
+3.1 Recon/Auxilliary  
+--------------------
+   
+   
+   
+   
+   
+   
+   
+   3.1 Nmap
 
 
 
 
+4.Recovery procedures 
+=====================
+Clients that host software services to the internet should be monitored carefully.
+This topic covers procedures for recovering a system breached with the Icecast vulnerability.  
 
-
-
-  4.3 Identify the problem  
+4.3 Identify the problem  
+------------------------
 Symptoms of a system breached through Icecast vulnerabilities can be found in:
 1. Microsoft error message (pop up windows)
 2. Microsoft Eventviewer
@@ -165,7 +181,7 @@ host would need to be physically present to view such an error.
 Furthermore, there are small margins for the breach being reported before attacker has hidden his presence.  
 
 Microsoft Eventviewer is far more likely to be noticed by defenders.  
-<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Microsoft%20Eventviewer.PNG" width="400" height="230">  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Microsoft%20Eventviewer.PNG" width="300" height="300">  
 
 Breached hosts can be recognized with traces of netcat.  
 Netcat is shortly put a software able to establish network UDP and TCP connections.  
@@ -173,19 +189,30 @@ Signes of an attacker using this software is a capturing packets with the addres
 Another sign is physical instances of netcat listeners on host.  
 For instance the process can be viewed through task manager and Eventviewer.  
 
+4.1 Being rooted  
+----------------
+Contain the host and prefferably the whole network unavailable from internet. Involve law enforcement and document the actions that led to the compromised system being discovered.
+Duplicate hard drives on exposed systems and assemble them together as evidence.  
+Deliver the physical evidence in addition to all documentation of the accident to forensic analysis. It is vital that access to the evidence has been limited before changing custody.  
 
-3.Attack  
-=============
+Ensuing reports would in our case indicate that the attacker has gained admin or root privilege.  
+Being rooted means the attacker is capable of planting backdoors to regain control at a later time, a full system recovery is necessary. 
+In other words, achieving full certainy that a system is not under influence of others call for rebuilding at the operating system level.  
 
-3.1 Recon/Auxilliary  
---------------------
-   
-   
-   
-   
-   
-   
-   
-   3.1 Nmap
+
+4.4 Recover control  
+-------------------
+The vulnerabilities explored in this report all stem from users having excessive rights and privileges.  
+Restricting users and computers through group policies or other rule enforcing systems is advised.  
+Administration of large enterprises and sophisticated networks are advised to follow the hereinafter ruleset:   
+Foremost, vulnerabilities on the software itself require administration off allowed applications to run on hosts.  
+Secondly, users should be prohibited from downloading software or limited to a secure selection.  
+Internet access moderated through internal and external gateway's firewall.  
+Antivirues software, keep in mind that not every virus is detectable or handable even by antivirus software. For example viruses have adapted to attack through staying in volatile memory which does not produce writing to files and is less detectable.  
+
+5.Defending  
+  5.1 What we learned  
+  5.2 Prospects of active directory  
+
     
 
