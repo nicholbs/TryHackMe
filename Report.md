@@ -99,7 +99,6 @@ To fully understand the concept of buffer overflow, three aspects are necessary:
 3. Leak in memory
 
 *Usage of buffers in coding*
-
 The regularity of buffer overflow differ from programming languages.  
 Programs written in C is often associated with buffer overflow.  
 For example, games are often developed with C as it can offers faster compiling time and execution.  
@@ -113,6 +112,8 @@ Write "John Smith" and the boundaries are met.
 Write "John Smithhhhhhhhhhhhhhhhh" and suddenly the buffer has overflown and all extra "h" will affect the next memory address.
 
 *Memory stack and addresses*
+Programs are given access to blocks of memory during runtime.  
+The actual code gets 
 
 
 
