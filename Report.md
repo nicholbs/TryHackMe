@@ -21,33 +21,33 @@ Means and meassures of attacks and procedures for recovery are described in deta
 
 
 **Table of Contents**  
-* 1.Purpose of report  
-* 2.Exploited application  
-  * 2.1 Current infrastructure and services
-  * 2.1 Buffer overflow and in-memory attack
-* 3.Attack  
-  * 3.1 Recon/Auxilliary  
-    * 3.1.1 Nmap
-  * 3.2 Gain Access  
-    * 3.2.1 Buffer overflow
-    * 3.2.2 Reverse TCP /gaining shell
-  * 3.3 Escalate  
-    * 3.3.1 meterpreter
-  * 3.4 Cracking the hash  
-    * 3.4.1 Brute force / John the ripper
-  * 3.5 Looting  
-    * 3.5.1 lack of security configurations
-    * 3.5.2 Exposing users / Minikatz (Kiwi) creds all
-  * 3.6 Post-Exploitation  
-    * 3.6.1 hashdump, screenshare, record mic, golden ticket
-* 4.Recovery procedures
-  * 4.1 Being rooted
-  * 4.2 Policy
-  * 4.3 Identify the problem
-  * 4.4 Recover control
-* 4.Defending 
-  * 4.1 What we learned
-  * 4.2 Prospects of active directory
+1. Purpose of report  
+2. Exploited application  
+  2.1 Current infrastructure and services
+  2.1 Buffer overflow and in-memory attack
+3.Attack  
+  3.1 Recon/Auxilliary  
+    3.1.1 Nmap
+  3.2 Gain Access  
+    3.2.1 Buffer overflow
+    3.2.2 Reverse TCP /gaining shell
+  3.3 Escalate  
+    3.3.1 meterpreter
+  3.4 Cracking the hash  
+    3.4.1 Brute force / John the ripper
+  3.5 Looting  
+    3.5.1 lack of security configurations
+    3.5.2 Exposing users / Minikatz (Kiwi) creds all
+  3.6 Post-Exploitation  
+    3.6.1 hashdump, screenshare, record mic, golden ticket
+4.Recovery procedures
+  4.1 Being rooted
+  4.2 Policy
+  4.3 Identify the problem
+  4.4 Recover control
+5.Defending 
+  5.1 What we learned
+  5.2 Prospects of active directory
   
   
  1.Purpose of report  
@@ -98,20 +98,9 @@ Imagine pouring yourself a glass of water, naturally there is a limit without le
 Then pour some additional water and the glass overflows.  
 In the same manor some programs without proper boundaries can overflow buffers.  
 Buffers are an allocated memory block of specified lenght.  
-Superceeding the manageable amount of data results in the extra data overwriting critical values.
+Superceeding the manageable amount of data results in the extra data overwriting critical values. 
 
-one could feed data to an allocated memory block of specified lenght. and  
-
-without leaking.  
-Then 
-
-
-it has a set amount of water maintanable without leaking. Filling water to the brim, and then 
-
-usually one would confine themself to the containable amount. 
-To illustrate buffer overflow can be viewed in
-
-with boundaries not being 
+To fully understand the impact of buffer overflow, 
 
 
 
