@@ -45,7 +45,7 @@ Means and meassures of attacks and procedures for recovery are described in deta
   5.2 Prospects of active directory  
   
   
- 1.Purpose of report  
+1.Purpose of report  
 --------------------
 The report outlines how excessive user rights constitute foothold    
 for attackers to exploit a windows infrastructure.  
@@ -156,19 +156,36 @@ Link to Luigi Auriemma description, who was the first to report the vulnerabilit
 Symptoms of a system breached through Icecast vulnerabilities can be found in:
 1. Microsoft error message (pop up windows)
 2. Microsoft Eventviewer
+3. Netcat
 
 Icecast will forcefully close on the client which is streaming.  
 The generated pop upp error message describes Icecast encountering a problem.  
-Client would need to be physically present to view such an error.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Icecast%20error%20message.PNG" width="400" height="230">  
+host would need to be physically present to view such an error.  
 Furthermore, there are small margins for the breach being reported before attacker has hidden his presence.  
 
 Microsoft Eventviewer is far more likely to be noticed by defenders.  
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Microsoft%20Eventviewer.PNG" width="400" height="230">  
+
+Breached hosts can be recognized with traces of netcat.  
+Netcat is shortly put a software able to establish network UDP and TCP connections.  
+Signes of an attacker using this software is a capturing packets with the address of pages to download netcat.  
+Another sign is physical instances of netcat listeners on host.  
+For instance the process can be viewed through task manager and Eventviewer.  
 
 
-that is running the application will close due to error 
+3.Attack  
+=============
 
-
-are a couple of  
-
-
+3.1 Recon/Auxilliary  
+--------------------
+   
+   
+   
+   
+   
+   
+   
+   3.1 Nmap
+    
 
