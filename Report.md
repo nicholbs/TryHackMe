@@ -6,8 +6,6 @@ Pentesting microsoft domain with excessive user rights
 **Version**: 1.0  
 
 
-
-
 Misimplementation of active directory domain services
 -------------------------------------------------------------------
 **Abstract**  
@@ -17,15 +15,14 @@ Remote attacker was enabled access through buffer overflow and lack of security 
 Means and meassures of attacks and procedures for recovery are described in details.   
 
 
-
 **Table of Contents**  
 1. Purpose of report  
 2. Exploited application  
   2.1 Current infrastructure and services
   2.1 Buffer overflow and in-memory attack  
 3.  Attack  
-  3.1 Recon/Auxilliary  
-     3.1 Nmap
+    3.1 Recon/Auxilliary  
+    3.1 Nmap
   3.2 Gain Access  
     3.2 Buffer overflow  
     3.2 Reverse TCP /gaining shell  
@@ -71,12 +68,10 @@ The scenario consists of a radio streaming business.
 Local clients use the application Icecast for publishing their audio online.
 Remote listeners connects to locally hosted web addresses, typically on a web browser.
 Icecast can be applied to most unix and windows opperating systems, and it is notewhorty that the application does not produce audio.  
-
   
 Third party software is necessary to feed sound into Icecast.  
 Supplementary audio software is accessible on any operating system.  
 Consequently exploiting Icecast affects all broadcasters in our scenario, there are no limitations based on operating systems.  
-
 
 The infrastructure itself reflects a medium sized business in size, and has implemented their domain with active directory domain services.  
 It is notewhorty that neither size or type of computer is a determining factor for this scenario seing as any client or server running Icecast is affected.  
@@ -98,7 +93,32 @@ In the same manor some programs without proper boundaries can overflow buffers.
 Buffers are an allocated memory block of specified lenght.  
 Superceeding the manageable amount of data results in the extra data overwriting critical values. 
 
-To fully understand the impact of buffer overflow, 
+To fully understand the concept of buffer overflow, three aspects are necessary:
+1. Usage of buffers in coding
+2. Memory stack and addresses.
+3. Leak in memory
+
+*Usage of buffers in coding*
+
+The regularity of buffer overflow differ from programming languages.  
+Programs written in C is often associated with buffer overflow.  
+For example, games are often developed with C as it can offers faster compiling time and execution.  
+Furthermore values on security and reliability in such environments are often sacrificed for speed.  
+Input from users is gathered with functions such as scanf, gets and strcpy.  
+Absence of appropriate boundary checking when receiving input can result in buffer overflow.  
+
+In fact every program that asks for credentials have a similar input function.  
+For example, 
+Overflowing the input buffer when expected to write username "John Smith"
+Programs that ask for credentials, for example username and password for Facebook.  
+The user is expected to write their name accordingly
+
+of programs with input
+
+Programs makes use of functions and
+
+are usually in C and C++ ob. 
+The programs consists mainly of 
 
 
 
