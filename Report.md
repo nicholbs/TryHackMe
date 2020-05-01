@@ -120,20 +120,47 @@ Essentially, code is compiled from human programming language into machine code 
 <img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Address%20space.PNG" width="400" height="230">  
 
 Processes load addresses to serve a function inside the program.  
-
-Concepts of shared library is out of scope for this report.  
-Some memory is only accessible for a designated part of a program, others can be dynamically linked.  
-Dynamic link libraries and Executables are out of scope for this report.
+To conclude, memory adresses spaces are assigned to a process and contains code to be loaded and run by programs.  
 
 *Leak in memory*  
+Functions inside require some form of computing that is handled by the CPU.  
+The address of memory to be computed is sent to the CPU and considered instructions.  
+There are different types of storage for instruction in the CPU called registers.  
+To remain on topic, only the vulnerability concept will be explained and not registers structure.
+
+The CPU handles an instruction at a time, in which it uses pointers to deliminate which instruction to be handled.  
+
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/Instructions.PNG" width="400" height="230"> 
+
+<img src="https://github.com/nicholbs/TryHackMe/blob/master/Pictures/CPU%20register.PNG" width="400" height="230"> 
+
+This report will not go into detail about the CPU
+One could go into detail about the CPU's own register, 
+Stacks 
+These are sent as instructions and stored in registe
+
+
+and the code's address space is stored in registers. 
+
+in a similar stack structruce as mentioned previously.  
+Each 
+
+, instructions are sent to the CPU 
+
+from programs 
+The CPU uses pointer that holds the addresses for code to 
+program tell the different instructions 
+
 While Dynamic Link Libraries and Executables are out of scope for this report.  
 The concept of using buffer overflow as a means of attack stems from memory used in different processes.  
 For example the program Icecast can share a part of memory which another program uses.  
 Overwriting the code inside that address space results in new code being loaded in other processes.  
 Ultimately, overwriting could lead to processes loading code which opens powershell and execute cmdlets.  
-To conclude, memory adresses spaces are assigned to a process and contains code to be loaded and run by programs.
 
 
+Concepts of shared library is out of scope for this report.  
+Some memory is only accessible for a designated part of a program, others can be dynamically linked.  
+Dynamic link libraries and Executables are out of scope for this report.
 
 
 
