@@ -25,19 +25,19 @@ Means and meassures of attacks and procedures for recovery are described in deta
   2.1 Buffer overflow and in-memory attack  
 3.  Attack  
   3.1 Recon/Auxilliary  
-  3.1.1 Nmap  
+     3.1 Nmap
   3.2 Gain Access  
-    3.2.1 Buffer overflow  
-    3.2.2 Reverse TCP /gaining shell  
+    3.2 Buffer overflow  
+    3.2 Reverse TCP /gaining shell  
   3.3 Escalate  
-    3.3.1 meterpreter  
+    3.3 meterpreter  
   3.4 Cracking the hash  
-    3.4.1 Brute force / John the ripper  
+    3.4 Brute force / John the ripper  
   3.5 Looting  
-    3.5.1 lack of security configurations  
-    3.5.2 Exposing users / Minikatz (Kiwi) creds all  
+    3.5 lack of security configurations  
+    3.5 Exposing users / Minikatz (Kiwi) creds all  
   3.6 Post-Exploitation  
-    3.6.1 hashdump, screenshare, record mic, golden ticket  
+    3.6 hashdump, screenshare, record mic, golden ticket  
 4.Recovery procedures  
   4.1 Being rooted  
   4.2 Policy  
