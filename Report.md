@@ -143,7 +143,7 @@ Ultimately, overwriting could lead to processes loading code which opens powersh
 
 The general explanation of buffer overflow applies to both exploits used to gain access in this report.  
 Link to Luigi Auriemma description, who was the first to report the vulnerability in Icecast.  
-[link to Luigi Auriemma's explanation!](http://goohttps://www.exploit-db.com/exploits/568gle.com)  
+[Luigi Auriemma's report!](goohttps://www.exploit-db.com/exploits/568gle.com)  
 
 
 
