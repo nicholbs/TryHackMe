@@ -1,12 +1,12 @@
 # Nmap 7.80 scan initiated Fri May  1 13:32:16 2020 as: nmap -sS -oN nmap-SynScan 10.10.184.248
-Nmap scan report for 10.10.184.248
+Nmap scan report for 10.10.184.248      #Targeted host
 Host is up (0.039s latency).
 Not shown: 989 filtered ports
 PORT      STATE SERVICE
 135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-3389/tcp  open  ms-wbt-server
+139/tcp   open  netbios-ssn             #Netbios TCP/UDP
+445/tcp   open  microsoft-ds            #SMB service
+3389/tcp  open  ms-wbt-server           #Indicates RDP
 5357/tcp  open  wsdapi
 49152/tcp open  unknown
 49153/tcp open  unknown
