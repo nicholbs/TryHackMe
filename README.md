@@ -1,2 +1,1 @@
-# TryHackMe
-Loggs from TryHackMe
+#Prosjekt i Infrastruktur: sikre grunntjenester
