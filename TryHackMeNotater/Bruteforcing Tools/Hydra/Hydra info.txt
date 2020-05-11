@@ -1,0 +1,10 @@
+https://en.kali.tools/?p=220		#Main page, description, options
+
+Raskt nettverk logon brute force verktøy
+
+Jeg brukte det etter å ha funnet brukere. for eksempel hviste jeg at bruker "jay" hadde dårlig passord.
+
+
+hydra -l (l for bruker) brukerNavn -P pathTilPassordListe (P for path til å inkludere passord liste, for eksempel path til rockyou.txt) ssh://IpAddresseTilMaskin
+
+Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, and new modules are easy to add. This tool makes it possible for researchers and security consultants to show how easy it would be to gain unauthorized access to a system remotely.

@@ -1,0 +1,9 @@
+https://tools.kali.org/password-attacks/john		#Main page, description, options
+
+John the Ripper is designed to be both feature-rich and fast. It combines several cracking modes in one program and is fully configurable for your particular needs (you can even define a custom cracking mode using the built-in compiler supporting a subset of C). Also, John is available for several different platforms which enables you to use the same cracker everywhere (you can even continue a cracking session which you started on another platform).
+
+Vertkøy for å knekke passord men har også masse andre funksjonaliteter som å varsle brukere om svake passord osv. sjekk ut hjemmeside.
+
+I mitt eksempel ser det ut til at john har eget verktøy for å knekke passord som er beskyttet i en ssh tilkobling. Med andre ord prøver jeg å koble med på en bruker og må knekke brukeren sitt passord? Faktisk i mitt eksempel har jeg en private key fra eksponert bruker og omgjør den til en john fil. Deretter mater john med den omgjorde filen. I tillegg henviser jeg til en ordliste, for eksempel rockyou så spytter den ut passordet.  
+
+for at john skal forstå en fil må du først gjøre det om til en john fil?

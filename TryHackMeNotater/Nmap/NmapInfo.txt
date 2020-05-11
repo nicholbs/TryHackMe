@@ -1,0 +1,32 @@
+https://nmap.org/    				#Main page
+https://nmap.org/download.html  		#Download page
+https://nmap.org/book/man.html			#Manual page
+https://svn.nmap.org/nmap/docs/nmap.usage.txt	#Command option list page
+
+
+For å få rapporter som kan leses ved hjelp av nettleser bruker jeg nettleser
+nmap -O(O for å finne ut operativsystem) -A (A for å bruke standard skriptene, denne option utfører en rekke ting som os detection, version detection, script scanning og traceroute) -oX (oX for å gjøre output til xml, her tror jeg xml filen har en henvisning til en stylesheet, stylesheet forteller nettleser hvordan den skal omgjøre xml til html. derimot spesifiserer jeg gjennom --webxml at stylesheet-en er tilgjengelig på nmap sine nettsider. altså fulle kommando:
+nmap -O -A -oX "navnPaaXmlFilen" --webxml "IpAddressenTilMaskinen"
+--------------------------------------------------------------------------------------------------
+Nmap (“Network Mapper”) is an open source tool for network exploration and security auditing. It was designed to rapidly scan large networks, although it works fine against single hosts.
+
+Nmap uses raw IP packets in novel ways to determine what hosts are available on the network, what services (application name and version) those hosts are offering, what operating systems (and OS versions) they are running, what type of packet filters/firewalls are in use, and dozens of other characteristics. 
+
+While Nmap is commonly used for security audits, many systems and network administrators find it useful for routine tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime.
+
+The output from Nmap is a list of scanned targets, with supplemental information on each depending on the options used. Key among that information is the “interesting ports table”. That table lists the port number and protocol, service name, and state. 
+
+The state is either open, filtered, closed, or unfiltered. Open means that an application on the target machine is listening for connections/packets on that port. Filtered means that a firewall, filter, or other network obstacle is blocking the port so that Nmap cannot tell whether it is open or closed. Closed ports have no application listening on them, though they could open up at any time. Ports are classified as unfiltered when they are responsive to Nmap's probes, but Nmap cannot determine whether they are open or closed. 
+
+Nmap reports the state combinations open|filtered and closed|filtered when it cannot determine which of the two states describe a port. The port table may also include software version details when version detection has been requested. When an IP protocol scan is requested (-sO), Nmap provides information on supported IP protocols rather than listening ports.
+
+In addition to the interesting ports table, Nmap can provide further information on targets, including reverse DNS names, operating system guesses, device types, and MAC addresses.
+
+A typical Nmap scan is shown in Example 15.1. 
+The only Nmap arguments used in this example are:
+-A, to enable OS and version detection, script scanning, and traceroute; 
+-T4 for faster execution; and then the hostname.
+
+
+Chapter 15. Nmap reference guide -Port scanning techniques:
+While Nmap attempts to produce accurate results, keep in mind that all of its insights are based on packets returned by the target machines (or firewalls in front of them). Such hosts may be untrustworthy and send responses intended to confuse or mislead Nmap. Much more common are non-RFC-compliant hosts that do not respond as they should to Nmap probes. FIN, NULL, and Xmas scans are particularly susceptible to this problem. Such issues are specific to certain scan types and so are discussed in the individual scan type entries.

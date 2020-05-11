@@ -1,0 +1,15 @@
+https://tools.kali.org/web-applications/gobuster			//Main page, description and options
+
+--------------------------------------------------------------------------------------------------
+
+Gobuster is a tool used to brute-force:
+
+-URIs (directories and files) in web sites.
+-DNS subdomains (with wildcard support).
+
+Dette verktøyet er nyttig for brute forcing, ser ut spesifikt mot directory og dns som er tilgjengelig på internett ved en ip addresse til en maskin. Kanskje noteringsverdig at det er skrevet i "Go"
+
+$ gobuster dir -u <MACHINE IP> -w /usr/share/dirb/wordlists/common.txt
+
+gobuster (verktøyet) dir (dir for å spesifisere hvilket modus, dir er default, men kan ha dns modus også) <MACHINE IP> (maskinen sin ip addresse) -w /usr/share...common.txt (-w etterfulgt med en path spesifiserer at du skal bruke en ordliste, og at ordlisten i bruteforcen kan finnes på den spesifiserte path-en)
+

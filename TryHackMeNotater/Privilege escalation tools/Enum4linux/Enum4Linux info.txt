@@ -1,0 +1,27 @@
+https://tools.kali.org/information-gathering/enum4linux		#Home page, description, options
+
+Bra verktøy for å hente ut passord policy, brukernavn osv fra Samba databaser? Jeg brukte det på smb port fra eksponert maskin.
+
+Jeg brukte enum4linux for å finne brukernavn:
+
+enum4linux -a (a går gjennom alt enum4linux har å tilby?) IpAddressePaaMaskin
+
+A Linux alternative to enum.exe for enumerating data from Windows and Samba hosts.
+
+Overview:
+
+Enum4linux is a tool for enumerating information from Windows and Samba systems. It attempts to offer similar functionality to enum.exe formerly available from www.bindview.com.
+
+It is written in Perl and is basically a wrapper around the Samba tools smbclient, rpclient, net and nmblookup.
+
+The tool usage can be found below followed by examples, previous versions of the tool can be found at the bottom of the page.
+
+Key features:
+
+RID cycling (When RestrictAnonymous is set to 1 on Windows 2000)
+User listing (When RestrictAnonymous is set to 0 on Windows 2000)
+Listing of group membership information
+Share enumeration
+Detecting if host is in a workgroup or a domain
+Identifying the remote operating system
+Password policy retrieval (using polenum)
